@@ -1,0 +1,44 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/andrei/Desktop/computernewtork/Communication/CommunicationHelper.h
+unistd.h
+-
+string
+-
+vector
+-
+
+/home/andrei/Desktop/computernewtork/client/main.cpp
+sys/types.h
+-
+sys/socket.h
+-
+netinet/in.h
+-
+errno.h
+-
+unistd.h
+-
+stdio.h
+-
+stdlib.h
+-
+netdb.h
+-
+string
+-
+arpa/inet.h
+-
+iostream
+-
+cstring
+-
+../Communication/CommunicationHelper.h
+/home/andrei/Desktop/computernewtork/Communication/CommunicationHelper.h
+

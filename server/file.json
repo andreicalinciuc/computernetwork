@@ -1,0 +1,37 @@
+{
+  "users":[
+    {
+      "name":"andrei",
+      "pass": "da",
+      "accept": "0",
+      "drept de vot": "da"
+    },
+    {
+      "name":"radu",
+      "pass": "da",
+      "accept": "1",
+      "drept de vot": "nu"
+
+    },
+    {
+      "name": "andu",
+      "pass": "haii",
+      "key": "pass"
+    }
+  ]
+  ,
+  "admins": [
+
+    {
+      "name": "andu",
+      "pass": "da",
+      "key": "pass"
+    }
+,
+    {
+      "name": "nicu",
+      "pass": "da",
+      "key": "13322"
+    }
+  ]
+}
