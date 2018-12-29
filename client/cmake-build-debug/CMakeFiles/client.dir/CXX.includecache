@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/andrei/Desktop/computernewtork/Communication/CommunicationHelper.h
+/home/andrei/Desktop/computernetwork/Communication/CommunicationHelper.h
 unistd.h
 -
 string
@@ -14,7 +14,7 @@ string
 vector
 -
 
-/home/andrei/Desktop/computernewtork/client/main.cpp
+/home/andrei/Desktop/computernetwork/client/main.cpp
 sys/types.h
 -
 sys/socket.h
@@ -40,5 +40,5 @@ iostream
 cstring
 -
 ../Communication/CommunicationHelper.h
-/home/andrei/Desktop/computernewtork/Communication/CommunicationHelper.h
+/home/andrei/Desktop/computernetwork/Communication/CommunicationHelper.h
 

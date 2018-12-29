@@ -25,6 +25,10 @@
 #include "../Communication/CommunicationHelper.h"
 #include "json.hpp"
 #include <fstream>
+#include <iomanip>
+#include <mutex>
+
+  std::mutex mu;
 /* portul folosit */
 #define PORT 2908
 using namespace std;
@@ -46,19 +50,7 @@ int main ()
     pthread_t th[100];    //Identificatorii thread-urilor care se vor crea
     int i=0;
     char recive[1024];
-    using json = nlohmann::json;
 
-    std:ifstream file("../file.json");
-    json j;
-    file >> j;
-
-for(int i=0;i<=j.size();i++)
-{
-    cout<<j["users"][i]["name"]<<endl;
-    cout<<j["users"][i]["pass"]<<endl;
-
-
-}
 
     /* crearea unui socket */
     if ((sd = socket (AF_INET, SOCK_STREAM, 0)) == -1)
@@ -160,10 +152,18 @@ void raspunde(void *arg)
     int  size=0;
     struct thData tdL;
     tdL= *((struct thData*)arg);
-    while (1) {
-       long size_recive=0;
-       long size_send=0;
 
+    while (1) {
+
+        long size_recive = 0;
+        long size_send = 0;
+
+
+        using json = nlohmann::json;
+        std:
+        ifstream file("../file.json");
+        json j;
+        file >> j;
 
 
         if (read(tdL.cl, &size_recive, sizeof(size_recive)) <= 0) {
@@ -171,7 +171,6 @@ void raspunde(void *arg)
             perror("Eroare la read() de la dimesiune\n");
 
         }
-        cout<<size_recive<<endl;
         bzero(&recive, size_recive + 1);
 
         if (read(tdL.cl, &recive, size_recive) <= 0) {
@@ -180,30 +179,108 @@ void raspunde(void *arg)
 
         }
 
-        printf("[Thread %d]Mesajul a fost receptionat...%s\n", tdL.idThread, recive);
+        cout <<"Am primit comanda " << recive<<" de la [Thread]:"<<tdL.idThread << endl;
+        int comanda = atoi(recive);
 
-        /*pregatim mesajul de raspuns */
-        printf("[Thread %d]Trimitem mesajul inapoi...%s\n", tdL.idThread, recive);
+        switch (comanda) {
+            case 0: {
+                char name[1024] = "\0";
+                char pass[1024] = "\0";
+                if (read(tdL.cl, &size_recive, sizeof(size_recive)) <= 0) {
+                    printf("[Thread %d]\n", tdL.idThread);
+                    perror("Eroare la read() de la dimesiune la Inregistrare-name\n");
+                    break;
 
-        cout<<size_recive<<endl;
-        if (write(tdL.cl, &size_recive, sizeof(size_recive)) <= 0) {
-            printf("[Thread %d] ", tdL.idThread);
-            perror("[Thread]Eroare la write() catre client la dimesiune. \n");
+                }
+                bzero(&name, size_recive + 1);
+
+                if (read(tdL.cl, &name, size_recive) <= 0) {
+                    printf("[Thread %d]\n", tdL.idThread);
+                    perror("Eroare la read() de la client.\n");
+                    break;
+
+                }
+
+
+                if (read(tdL.cl, &size_recive, sizeof(size_recive)) <= 0) {
+                    printf("[Thread %d]\n", tdL.idThread);
+                    perror("Eroare la read() de la dimesiune la Inregistrare-pass\n");
+                    break;
+
+                }
+                bzero(&pass, size_recive + 1);
+
+                if (read(tdL.cl, &pass, size_recive) <= 0) {
+                    printf("[Thread %d]\n", tdL.idThread);
+                    perror("Eroare la read() de la client.\n");
+                    break;
+
+                }
+
+                mu.lock();
+                json x;
+                x["name"] = name;
+                x["pass"] = pass;
+                x["drept de vot"] = 0;
+                j["users"].push_back(x);
+                ofstream o("../file.json");
+                o << setw(4) << j << endl;
+                mu.unlock();
+
+                break;
+            }
+            case 1:
+            {
+                char name[1024] = "\0";
+                char pass[1024] = "\0";
+                if (read(tdL.cl, &size_recive, sizeof(size_recive)) <= 0) {
+                    printf("[Thread %d]\n", tdL.idThread);
+                    perror("Eroare la read() de la dimesiune la Inregistrare-name\n");
+                    break;
+
+                }
+                bzero(&name, size_recive + 1);
+
+                if (read(tdL.cl, &name, size_recive) <= 0) {
+                    printf("[Thread %d]\n", tdL.idThread);
+                    perror("Eroare la read() de la client.\n");
+                    break;
+
+                }
+
+                if (read(tdL.cl, &size_recive, sizeof(size_recive)) <= 0) {
+                    printf("[Thread %d]\n", tdL.idThread);
+                    perror("Eroare la read() de la dimesiune la Inregistrare-pass\n");
+                    break;
+
+                }
+                bzero(&pass, size_recive + 1);
+
+                if (read(tdL.cl, &pass, size_recive) <= 0) {
+                    printf("[Thread %d]\n", tdL.idThread);
+                    perror("Eroare la read() de la client.\n");
+                    break;
+
+                }
+                        for(auto logi:j["users"])
+                        {
+                            string usersname=j["users"];
+                            cout<<usersname<<endl;
+                }
+                                break;
+
+            }
+            case 4: {
+                Close((intptr_t) arg);
+                cout << "Am terminat conexiunea cu  [Threadul]: " << tdL.idThread << endl;
+                break;
+
+            }
+            default:
+                break;
         }
+        break;
+    }
 
-       //  returnam mesajul clientului
-        if (write(tdL.cl, recive, size_recive) <= 0) {
-            printf("[Thread %d] ", tdL.idThread);
-            perror("[Thread]Eroare la write() catre client.\n");
-        }
-        else
-            printf("[Thread %d]Mesajul a fost trasmis cu succes.\n", tdL.idThread);
-
-        if(strcmp(recive,"quit")==0)
-        {
-            close((intptr_t) arg);
-            break;
-        }
 
     }
-}

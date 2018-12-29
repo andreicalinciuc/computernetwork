@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/andrei/Desktop/computernewtork/Communication/CommunicationHelper.h
+/home/andrei/Desktop/computernetwork/Communication/CommunicationHelper.h
 unistd.h
 -
 string
@@ -14,7 +14,7 @@ string
 vector
 -
 
-/home/andrei/Desktop/computernewtork/server/json.hpp
+/home/andrei/Desktop/computernetwork/server/json.hpp
 algorithm
 -
 cassert
@@ -300,7 +300,7 @@ vector
 utility
 -
 
-/home/andrei/Desktop/computernewtork/server/main.cpp
+/home/andrei/Desktop/computernetwork/server/main.cpp
 sys/types.h
 -
 sys/socket.h
@@ -326,9 +326,13 @@ iostream
 fstream
 -
 ../Communication/CommunicationHelper.h
-/home/andrei/Desktop/computernewtork/Communication/CommunicationHelper.h
+/home/andrei/Desktop/computernetwork/Communication/CommunicationHelper.h
 json.hpp
-/home/andrei/Desktop/computernewtork/server/json.hpp
+/home/andrei/Desktop/computernetwork/server/json.hpp
 fstream
+-
+iomanip
+-
+mutex
 -
 

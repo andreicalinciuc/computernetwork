@@ -25,6 +25,8 @@ using namespace std;
 /* portul de conectare la server*/
 int port;
 
+void quit(char input[1024]);
+
 int main (int argc, char *argv[]) {
     int sd;            // descriptorul de socket
     struct sockaddr_in server;    // structura folosita pentru conectare
@@ -33,8 +35,11 @@ int main (int argc, char *argv[]) {
     char buf[10];
     char input[1024];
     char recive[1024];
-    long   size_recive;
+    long size_recive;
     long size_send;
+    int comanda;
+    int type_user;
+    bool connected;
     /* exista toate argumentele in linia de comanda? */
     if (argc != 3) {
         printf("Sintaxa: %s <adresa_server> <port>\n", argv[0]);
@@ -64,47 +69,88 @@ int main (int argc, char *argv[]) {
         perror("[client]Eroare la connect().\n");
         return errno;
     }
+    cout << "0.user" << endl;
+    cout << "1.admin" << endl;
+    cout << "comanda: ";
+    cin >> type_user;
     while (1) {
         /* citirea mesajului */
 
-        printf("[client]Introduceti comanda: ");
-        fflush(stdout);
-        cin.get(input,1024);
-        cin.get();
 
-        printf("[client] Am citit %s\n", input);
-        /* trimiterea mesajului la server */
-        Write(sd,input);
+        switch (type_user)
+            case 0 : {
+                top:
+
+                cout << "0.Inregistrare" << endl;
+                cout << "1.Login" << endl;
+                cout << "2.Top" << endl;
+                cout << "3.Top-gen" << endl;
+                cout << "4.Quit" << endl;
+
+                fflush(stdout);
+                do{
+                    cout << "Introduceti numarul  comenzii: ";
+                    cin >> comanda;
+                    cout<<comanda<<endl;
+                    cout<<endl;
+
+                }while(comanda>4 || comanda <0);
 
 
 
+                switch (comanda) {
 
-        /* citirea raspunsului dat de server
-           (apel blocant pina cind serverul raspunde) */
+                    case 0: {
+                        char name[1024] = "\0";
+                        char pass[1024] = "\0";
+                        strcpy(input, "0");
+                        Write(sd, input);
+
+                        cout << "Introduceti numele contului dorit: ";
+                        cin >> name;
+                        Write(sd, name);
+
+                        cout << endl << "Introduceti parola dorita: ";
+                        cin >> pass;
+                        Write(sd, pass);
+
+                        goto top;
+
+                    }
+
+                    case 1:{
+                        char name[1024] = "\0";
+                        char pass[1024] = "\0";
+                        strcpy(input, "1");
+                        Write(sd, input);
+
+                        cout << "Introduceti numele contului: ";
+                        cin >> name;
+                        Write(sd, name);
+
+                        cout << endl << "Introduceti parola: ";
+                        cin >> pass;
+                        Write(sd, pass);
+
+                        goto top;
+
+                    }
+
+                    case 4: {
+                        strcpy(input, "4");
+                        Write(sd, input);
+                        Close(sd);
+                        return 0;
+                    }
+
+                    default:
+                        cout << "comanda gresita,introdua alta" << endl;
+                        goto top;
+                }
 
 
-        if (read(sd, &size_recive, sizeof(size_recive)) < 0) {
-            perror("[client]Eroare la read() de la server la dimensiune.\n");
-            return errno;
-        }
-        bzero(&recive, size_recive + 1);
-
-        //momentan doar trimite si primeste, si doar quit, dar primea aiurea inapoi
-        if (read(sd, &recive, size_recive) < 0) {
-            perror("[client]Eroare la read() de la server.\n");
-            return errno;
-        }
-        /* afisam mesajul primit */
-        printf("[client]Mesajul primit este: %s\n", recive);
-
-        if(strcmp(recive,"quit")==0)
-        {
-            close(sd);
-            break;
-        }
-
+            }
 
     }
-    /* inchidem conexiunea, am terminat */
-
 }
+

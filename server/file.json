@@ -1,37 +1,46 @@
 {
-  "users":[
-    {
-      "name":"andrei",
-      "pass": "da",
-      "accept": "0",
-      "drept de vot": "da"
-    },
-    {
-      "name":"radu",
-      "pass": "da",
-      "accept": "1",
-      "drept de vot": "nu"
-
-    },
-    {
-      "name": "andu",
-      "pass": "haii",
-      "key": "pass"
-    }
-  ]
-  ,
-  "admins": [
-
-    {
-      "name": "andu",
-      "pass": "da",
-      "key": "pass"
-    }
-,
-    {
-      "name": "nicu",
-      "pass": "da",
-      "key": "13322"
-    }
-  ]
+    "admins": [
+        {
+            "key": "pass",
+            "name": "adsadsd",
+            "pass": "da"
+        },
+        {
+            "key": "13322",
+            "name": "nicu",
+            "pass": "da"
+        }
+    ],
+    "users": [
+        {
+            "drept de vot": 0,
+            "name": "dre",
+            "pass": "bres"
+        },
+        {
+            "drept de vot": 0,
+            "name": "vre",
+            "pass": "dnsa"
+        },
+        {
+            "drept de vot": 0,
+            "name": "da",
+            "pass": "uas"
+        },
+        {
+            "drept de vot": 0,
+            "name": "dea",
+            "pass": "dees"
+        },
+        {
+            "drept de vot": 0,
+            "name": "fr",
+            "pass": "feaas"
+        },
+        {
+            "drept de vot": 0,
+            "name": "der",
+            "pass": "bre"
+        }
+    ]
 }
