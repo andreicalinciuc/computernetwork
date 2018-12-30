@@ -9,38 +9,147 @@
             "key": "13322",
             "name": "nicu",
             "pass": "da"
+        },
+        {
+            "key": "key",
+            "name": "doru",
+            "pass": "dar"
+        },
+        {
+            "key": "admin",
+            "name": "andrei",
+            "pass": "admin"
+        },
+        {
+            "key": "admin",
+            "name": "admin",
+            "pass": "admin"
+        },
+        {
+            "key": "123",
+            "name": "dar",
+            "pass": "bar"
+        },
+        {
+            "key": "2",
+            "name": "dd",
+            "pass": "9"
+        },
+        {
+            "key": "3",
+            "name": "da",
+            "pass": "da"
+        },
+        {
+            "key": "4",
+            "name": "da",
+            "pass": "da"
+        }
+    ],
+    "songs": [
+        {
+            "descriere": "deasdadsadsaaaaaaaaaaaa",
+            "genuri": {
+                "gen": [
+                    "dasda",
+                    "drrg",
+                    "fdsfsd",
+                    "sda"
+                ]
+            },
+            "link": "de",
+            "name": "da",
+            "numar de voturi": 0
+        },
+        {
+            "comentarii": null,
+            "descriere": "fdsasddfa",
+            "genuri": {
+                "gen": [
+                    "manele"
+                ]
+            },
+            "link": "asddsaasd",
+            "name": "dasads",
+            "numar de voturi": 0
+        },
+        {
+            "descriere": "da",
+            "link": "da",
+            "name": "da",
+            "numar de voturi": 0
         }
     ],
     "users": [
         {
             "drept de vot": 0,
-            "name": "dre",
-            "pass": "bres"
+            "name": "andrei",
+            "pass": "admin"
         },
         {
             "drept de vot": 0,
-            "name": "vre",
-            "pass": "dnsa"
+            "name": "dinu",
+            "pass": "pinguinu"
         },
         {
             "drept de vot": 0,
-            "name": "da",
-            "pass": "uas"
+            "name": "nicur",
+            "pass": "brez"
         },
         {
             "drept de vot": 0,
-            "name": "dea",
-            "pass": "dees"
+            "name": "das",
+            "pass": "nico"
         },
         {
             "drept de vot": 0,
-            "name": "fr",
-            "pass": "feaas"
+            "name": "0",
+            "pass": "dar"
         },
         {
             "drept de vot": 0,
-            "name": "der",
-            "pass": "bre"
+            "name": "pingu",
+            "pass": "123"
+        },
+        {
+            "drept de vot": 0,
+            "name": "bre",
+            "pass": "da"
+        },
+        {
+            "drept de vot": 0,
+            "name": "indrodu",
+            "pass": "nico"
+        },
+        {
+            "drept de vot": 0,
+            "name": "dreb",
+            "pass": "nora"
+        },
+        {
+            "drept de vot": 0,
+            "name": "0",
+            "pass": "bicu"
+        },
+        {
+            "drept de vot": 0,
+            "name": "dr",
+            "pass": "br"
+        },
+        {
+            "drept de vot": 0,
+            "name": "dinu",
+            "pass": "caz"
+        },
+        {
+            "drept de vot": 0,
+            "name": "user",
+            "pass": "user"
+        },
+        {
+            "drept de vot": 0,
+            "name": "niculee",
+            "pass": "barabuula"
         }
     ]
 }

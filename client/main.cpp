@@ -38,7 +38,7 @@ int main (int argc, char *argv[]) {
     long size_recive;
     long size_send;
     int comanda;
-    int type_user;
+    int type_user=3;
     bool connected;
     /* exista toate argumentele in linia de comanda? */
     if (argc != 3) {
@@ -69,15 +69,29 @@ int main (int argc, char *argv[]) {
         perror("[client]Eroare la connect().\n");
         return errno;
     }
-    cout << "0.user" << endl;
-    cout << "1.admin" << endl;
-    cout << "comanda: ";
-    cin >> type_user;
+
+    do{
+        cout << "0.user" << endl;
+        cout << "1.admin" << endl;
+        cout << "comanda: ";
+        cin >> type_user;
+    }while (type_user>1);
+
+    string type_send;
+    if(type_user==0)
+        type_send="0";
+    else
+        type_send="1";
+
+    Write(sd,type_send);
     while (1) {
         /* citirea mesajului */
 
 
         switch (type_user)
+        {
+
+
             case 0 : {
                 top:
 
@@ -131,8 +145,34 @@ int main (int argc, char *argv[]) {
                         cout << endl << "Introduceti parola: ";
                         cin >> pass;
                         Write(sd, pass);
+                        read(sd,&size_recive, sizeof(size_recive));
+                        bzero(recive,size_recive+1);
+                        read(sd,recive,size_recive);
+                        cout<<recive<<"--"<<endl;
+                        connected = atoi(recive);
+                        switch (connected)
+                        {
+                            case 0: {
+                                cout<<"erroare la connetare"<<endl;
+                                goto top;
 
-                        goto top;
+                            }
+                            case 1: {
+
+                                cout<<"Bine ai venit "<<name<<endl;
+                                cout << "2.Top" << endl;
+                                cout << "3.Top-gen" << endl;
+                                cout << "4.Quit" << endl;
+                                cout << "5.Vote" <<endl;
+                                cout<<"6.Comment" <<endl;
+                                cout<<"7.Search" <<endl;
+
+                                goto top;
+
+
+                            }
+
+                            }
 
                     }
 
@@ -150,6 +190,208 @@ int main (int argc, char *argv[]) {
 
 
             }
+            case 1:
+            {
+                top_adm:
+                cout << "0.Inregistrare" << endl;
+                cout << "1.Login" << endl;
+                cout << "2.Top" << endl;
+                cout << "3.Top-gen" << endl;
+                cout << "4.Quit" << endl;
+
+
+                fflush(stdout);
+                do{
+                    cout << "Introduceti numarul  comenzii: ";
+                    cin >> comanda;
+                    cout<<comanda<<endl;
+                    cout<<endl;
+
+                }while(comanda>8 || comanda <0);
+
+                switch (comanda) {
+
+                    case 0: {
+                        char name[1024] = "\0";
+                        char pass[1024] = "\0";
+                        char key[1024]="\0";
+                        strcpy(input, "0");
+                        Write(sd, input);
+
+                        cout << "Introduceti numele contului dorit: ";
+                        cin >> name;
+                        Write(sd, name);
+
+                        cout << endl << "Introduceti parola dorita: ";
+                        cin >> pass;
+                        Write(sd, pass);
+                        cout<<endl<< "Introduceti key-ul secret: ";
+                        cin>>key;
+                        Write(sd,key);
+
+                        goto top_adm;
+
+                    }
+
+                    case 1:{
+                        char name[1024] = "\0";
+                        char pass[1024] = "\0";
+                        char key[1024]="\0";
+                        strcpy(input, "1");
+                        Write(sd, input);
+
+                        cout << "Introduceti numele contului: ";
+                        cin >> name;
+                        Write(sd, name);
+
+                        cout << endl << "Introduceti parola: ";
+                        cin >> pass;
+                        Write(sd, pass);
+
+                        cout<<endl<<"Introduceti key: ";
+                        cin>>key;
+                        Write(sd,key);
+
+                        read(sd,&size_recive, sizeof(size_recive));
+                        bzero(recive,size_recive+1);
+                        read(sd,recive,size_recive);
+                        cout<<recive<<"--"<<endl;
+                        connected = atoi(recive);
+                        switch (connected)
+                        {
+                            case 0: {
+                                cout<<"erroare la connetare"<<endl<<endl;
+                                goto top_adm;
+
+                            }
+                            case 1: {
+
+                                cout<<"Bine ai venit "<<name<<endl;
+                                top_adm_connected:
+                                cout << "2.Top" << endl;
+                                cout << "3.Top-gen" << endl;
+                                cout << "4.Quit" << endl;
+                                cout << "5.Mute user"<<endl;
+                                cout << "6.Delete user"<<endl;
+                                cout << "7.List users"<<endl;
+                                cout << "8.Add song" <<endl;
+
+                                fflush(stdout);
+                                do{
+                                    cout << "Introduceti numarul  comenzii: ";
+                                    cin >> comanda;
+                                    cout<<comanda<<endl;
+                                    cout<<endl;
+
+                                }while(comanda>8 || comanda <0);
+
+                                switch (comanda){
+
+                                    case 4: {
+                                        strcpy(input, "4");
+                                        Write(sd, input);
+                                        Close(sd);
+                                        return 0;
+                                    }
+                                    case 7:{
+                                            int size_memb=0;
+                                        strcpy(input, "7");
+                                        Write(sd, input);
+
+                                        read(sd,&size_memb, sizeof(size_memb));
+                                        for(int i=0;i<size_memb;i++)
+                                        {
+                                            if (read(sd, &size_recive, sizeof(size_recive)) <= 0) {
+                                                perror("Eroare la read() de la dimesiune la Inregistrare-name\n");
+                                                break;
+
+                                            }
+                                            bzero(&input, size_recive + 1);
+
+                                            if (read(sd, input, size_recive) <= 0) {
+                                                perror("Eroare la read() de la client.\n");
+                                                break;
+
+                                            }
+
+                                            cout<<input<<endl;
+                                        }
+
+                                        break;
+                                    }
+
+                                    case 8:
+                                    {
+                                        strcpy(input, "8");
+                                        Write(sd, input);
+                                        char name_song[1024]="\0";
+                                        char link_youtube[1024]="\0";
+                                        char gen[1024]="\0";
+                                        char descriere[1024]="\0";
+                                        char nr_gen[1024]="\0";
+
+                                         cout<<"Numele melodiei: ";
+                                         cin>>name_song;
+                                         Write(sd,name_song);
+
+
+                                         cout<<endl<<"Link youtube: ";
+                                         cin>>link_youtube;
+                                         Write(sd,link_youtube);
+
+                                         cout<<"Descriere melodie: ";
+                                         cin>>descriere;
+                                         Write(sd,descriere);
+
+                                         cout<<endl<<"Numar de genuri care apartine melodia: ";
+                                         cin>>nr_gen;
+
+
+
+                                         Write(sd,nr_gen);
+
+                                         int nr_g=atoi(nr_gen);
+                                         for(int i=0;i<nr_g;i++)
+                                         {
+                                             cout<<"Genul melodiei: ";
+                                             cin>>gen;
+                                             Write(sd,gen);
+                                             cout<<endl;
+                                         }
+                                        break;
+                                    }
+
+                                    default:
+                                        break;
+                                }
+
+                                goto top_adm_connected;
+
+                                break;
+                            }
+
+                        }
+
+                    }
+                    case 4: {
+                        strcpy(input, "4");
+                        Write(sd, input);
+                        Close(sd);
+                        return 0;
+                    }
+
+                    default:
+                        cout << "comanda gresita,introdua alta" << endl;
+                        goto top;
+
+
+                }
+            }
+
+            }
+
+
+
 
     }
 }

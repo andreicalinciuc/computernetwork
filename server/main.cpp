@@ -146,141 +146,532 @@ static void *treat(void * arg) {
 
 void raspunde(void *arg)
 {
-
+    long size_recive = 0;
+    long size_send=0;
     int  i=0;
     char recive[1024];
     int  size=0;
     struct thData tdL;
     tdL= *((struct thData*)arg);
+    char type_user[1024];
 
-    while (1) {
-
-        long size_recive = 0;
-        long size_send = 0;
-
-
-        using json = nlohmann::json;
-        std:
-        ifstream file("../file.json");
-        json j;
-        file >> j;
+    if (read(tdL.cl, &size_recive, sizeof(size_recive)) <= 0) {
+        printf("[Thread %d]\n", tdL.idThread);
+        perror("Eroare la read() de la dimesiune\n");
 
 
-        if (read(tdL.cl, &size_recive, sizeof(size_recive)) <= 0) {
-            printf("[Thread %d]\n", tdL.idThread);
-            perror("Eroare la read() de la dimesiune\n");
+    }
+    bzero(&type_user, size_recive + 1);
 
-        }
-        bzero(&recive, size_recive + 1);
+    if (read(tdL.cl, &type_user, size_recive) <= 0) {
+        printf("[Thread %d]\n", tdL.idThread);
+        perror("Eroare la read() de la client.\n");
 
-        if (read(tdL.cl, &recive, size_recive) <= 0) {
-            printf("[Thread %d]\n", tdL.idThread);
-            perror("Eroare la read() de la client.\n");
+    }
+    int usr=atoi(type_user);
 
-        }
+switch (usr){
+    case 0:
+    {
+            cout<<"Suntem in user"<<endl;
+        while (1) {
+            size_recive = 0;
+            size_send = 0;
 
-        cout <<"Am primit comanda " << recive<<" de la [Thread]:"<<tdL.idThread << endl;
-        int comanda = atoi(recive);
-
-        switch (comanda) {
-            case 0: {
-                char name[1024] = "\0";
-                char pass[1024] = "\0";
-                if (read(tdL.cl, &size_recive, sizeof(size_recive)) <= 0) {
-                    printf("[Thread %d]\n", tdL.idThread);
-                    perror("Eroare la read() de la dimesiune la Inregistrare-name\n");
-                    break;
-
-                }
-                bzero(&name, size_recive + 1);
-
-                if (read(tdL.cl, &name, size_recive) <= 0) {
-                    printf("[Thread %d]\n", tdL.idThread);
-                    perror("Eroare la read() de la client.\n");
-                    break;
-
-                }
+            using json = nlohmann::json;
+            std:
+            ifstream file("../file.json");
+            json j;
+            file >> j;
 
 
-                if (read(tdL.cl, &size_recive, sizeof(size_recive)) <= 0) {
-                    printf("[Thread %d]\n", tdL.idThread);
-                    perror("Eroare la read() de la dimesiune la Inregistrare-pass\n");
-                    break;
 
-                }
-                bzero(&pass, size_recive + 1);
-
-                if (read(tdL.cl, &pass, size_recive) <= 0) {
-                    printf("[Thread %d]\n", tdL.idThread);
-                    perror("Eroare la read() de la client.\n");
-                    break;
-
-                }
-
-                mu.lock();
-                json x;
-                x["name"] = name;
-                x["pass"] = pass;
-                x["drept de vot"] = 0;
-                j["users"].push_back(x);
-                ofstream o("../file.json");
-                o << setw(4) << j << endl;
-                mu.unlock();
-
+            if (read(tdL.cl, &size_recive, sizeof(size_recive)) <= 0) {
+                printf("[Thread %d]\n", tdL.idThread);
+                perror("Eroare la read() de la dimesiune\n");
                 break;
+
+
             }
-            case 1:
-            {
-                char name[1024] = "\0";
-                char pass[1024] = "\0";
-                if (read(tdL.cl, &size_recive, sizeof(size_recive)) <= 0) {
-                    printf("[Thread %d]\n", tdL.idThread);
-                    perror("Eroare la read() de la dimesiune la Inregistrare-name\n");
+            bzero(&recive, size_recive + 1);
+
+            if (read(tdL.cl, &recive, size_recive) <= 0) {
+                printf("[Thread %d]\n", tdL.idThread);
+                perror("Eroare la read() de la client.\n");
+
+            }
+
+            cout <<"Am primit comanda " << recive<<" de la [Thread]: "<<tdL.idThread << endl;
+            int comanda = atoi(recive);
+
+            switch (comanda) {
+                case 0: {
+                    char name[1024] = "\0";
+                    char pass[1024] = "\0";
+                    if (read(tdL.cl, &size_recive, sizeof(size_recive)) <= 0) {
+                        printf("[Thread %d]\n", tdL.idThread);
+                        perror("Eroare la read() de la dimesiune la Inregistrare-name\n");
+                        break;
+
+                    }
+                    bzero(&name, size_recive + 1);
+
+                    if (read(tdL.cl, &name, size_recive) <= 0) {
+                        printf("[Thread %d]\n", tdL.idThread);
+                        perror("Eroare la read() de la client.\n");
+                        break;
+
+                    }
+
+
+                    if (read(tdL.cl, &size_recive, sizeof(size_recive)) <= 0) {
+                        printf("[Thread %d]\n", tdL.idThread);
+                        perror("Eroare la read() de la dimesiune la Inregistrare-pass\n");
+                        break;
+
+                    }
+                    bzero(&pass, size_recive + 1);
+
+                    if (read(tdL.cl, &pass, size_recive) <= 0) {
+                        printf("[Thread %d]\n", tdL.idThread);
+                        perror("Eroare la read() de la client.\n");
+                        break;
+
+                    }
+
+                    mu.lock();
+                    json x;
+                    x["name"] = name;
+                    x["pass"] = pass;
+                    x["drept de vot"] = 0;
+                    j["users"].push_back(x);
+                    ofstream o("../file.json");
+                    o << setw(4) << j << endl;
+                    mu.unlock();
+                    cout<<"Am inregistrat pe "<<name <<" cu parola" <<pass<<endl;
                     break;
-
                 }
-                bzero(&name, size_recive + 1);
+                case 1:
+                {
+                    char name[1024] = "\0";
+                    char pass[1024] = "\0";
+                    if (read(tdL.cl, &size_recive, sizeof(size_recive)) <= 0) {
+                        printf("[Thread %d]\n", tdL.idThread);
+                        perror("Eroare la read() de la dimesiune la Inregistrare-name\n");
+                        break;
 
-                if (read(tdL.cl, &name, size_recive) <= 0) {
-                    printf("[Thread %d]\n", tdL.idThread);
-                    perror("Eroare la read() de la client.\n");
-                    break;
+                    }
+                    bzero(&name, size_recive + 1);
 
-                }
+                    if (read(tdL.cl, &name, size_recive) <= 0) {
+                        printf("[Thread %d]\n", tdL.idThread);
+                        perror("Eroare la read() de la client.\n");
+                        break;
 
-                if (read(tdL.cl, &size_recive, sizeof(size_recive)) <= 0) {
-                    printf("[Thread %d]\n", tdL.idThread);
-                    perror("Eroare la read() de la dimesiune la Inregistrare-pass\n");
-                    break;
+                    }
 
-                }
-                bzero(&pass, size_recive + 1);
+                    if (read(tdL.cl, &size_recive, sizeof(size_recive)) <= 0) {
+                        printf("[Thread %d]\n", tdL.idThread);
+                        perror("Eroare la read() de la dimesiune la Inregistrare-pass\n");
+                        break;
 
-                if (read(tdL.cl, &pass, size_recive) <= 0) {
-                    printf("[Thread %d]\n", tdL.idThread);
-                    perror("Eroare la read() de la client.\n");
-                    break;
+                    }
+                    bzero(&pass, size_recive + 1);
 
-                }
-                        for(auto logi:j["users"])
+                    if (read(tdL.cl, &pass, size_recive) <= 0) {
+                        printf("[Thread %d]\n", tdL.idThread);
+                        perror("Eroare la read() de la client.\n");
+                        break;
+
+                    }
+                    char* ok="0";
+                    ifstream file ("../file.json");
+                    json login = json ::parse(file);
+                    for(auto logi:login["users"])
+                    {
+                        string usersname=logi["name"];
+                        string  password=logi["pass"];
+                        cout<<usersname<<" "<<password<< endl;
+                        if(pass ==password && name==usersname)
                         {
-                            string usersname=j["users"];
-                            cout<<usersname<<endl;
+                            cout<<"gasit"<<endl;
+                            ok="1";
+                            break;
+                        }
+
+                    }
+                    Write(tdL.cl,ok);
+                    break ;
+
                 }
+                case 4: {
+                    Close((intptr_t) arg);
+                    cout << "Am terminat conexiunea cu  [Threadul]: " << tdL.idThread << endl;
+                    break;
+
+                }
+                default:
+                    break;
+            }
+            if(comanda==4)
+                break;
+
+        }
+        break;
+
+    }
+    case 1:
+    {
+        cout<<"Suntem in admin"<<endl;
+
+        while (1) {
+            size_recive = 0;
+            size_send = 0;
+
+            using json = nlohmann::json;
+            ifstream file("../file.json");
+            json j;
+            file >> j;
+
+
+            if (read(tdL.cl, &size_recive, sizeof(size_recive)) <= 0) {
+                printf("[Thread %d]\n", tdL.idThread);
+                perror("Eroare la read() de la dimesiune\n");
+                break;
+
+
+            }
+            bzero(&recive, size_recive + 1);
+
+            if (read(tdL.cl, &recive, size_recive) <= 0) {
+                printf("[Thread %d]\n", tdL.idThread);
+                perror("Eroare la read() de la client.\n");
+
+            }
+
+            cout <<"Am primit comanda " << recive<<" de la [Threadul]:"<<tdL.idThread << endl;
+            int comanda = atoi(recive);
+
+            switch (comanda) {
+                case 0: {
+                    char name[1024] = "\0";
+                    char pass[1024] = "\0";
+                    char key[1024]="\0";
+
+                    if (read(tdL.cl, &size_recive, sizeof(size_recive)) <= 0) {
+                        printf("[Thread %d]\n", tdL.idThread);
+                        perror("Eroare la read() de la dimesiune la Inregistrare-name\n");
+                        break;
+
+                    }
+                    bzero(&name, size_recive + 1);
+
+                    if (read(tdL.cl, &name, size_recive) <= 0) {
+                        printf("[Thread %d]\n", tdL.idThread);
+                        perror("Eroare la read() de la client.\n");
+                        break;
+
+                    }
+
+
+                    if (read(tdL.cl, &size_recive, sizeof(size_recive)) <= 0) {
+                        printf("[Thread %d]\n", tdL.idThread);
+                        perror("Eroare la read() de la dimesiune la Inregistrare-pass\n");
+                        break;
+
+                    }
+                    bzero(&pass, size_recive + 1);
+
+                    if (read(tdL.cl, &pass, size_recive) <= 0) {
+                        printf("[Thread %d]\n", tdL.idThread);
+                        perror("Eroare la read() de la client.\n");
+                        break;
+
+                    }
+
+                    if (read(tdL.cl, &size_recive, sizeof(size_recive)) <= 0) {
+                        printf("[Thread %d]\n", tdL.idThread);
+                        perror("Eroare la read() de la dimesiune la Inregistrare-key\n");
+                        break;
+
+                    }
+                    bzero(&key, size_recive + 1);
+
+                    if (read(tdL.cl, &key, size_recive) <= 0) {
+                        printf("[Thread %d]\n", tdL.idThread);
+                        perror("Eroare la read() de la client.\n");
+                        break;
+
+                    }
+
+                    mu.lock();
+                    json x;
+                    x["name"] = name;
+                    x["pass"] = pass;
+                    x["key"] = key;
+                    j["admins"].push_back(x);
+                    ofstream o("../file.json");
+                    o << setw(4) << j << endl;
+                    mu.unlock();
+                    cout<<"Am inregistrat pe "<<name <<" cu parola " <<pass <<" si cu key-ul "<<key<<endl;
+
+                    break;
+                }
+                case 1:
+                {
+                    char name[1024] = "\0";
+                    char pass[1024] = "\0";
+                    char key[1024]="\0";
+                    if (read(tdL.cl, &size_recive, sizeof(size_recive)) <= 0) {
+                        printf("[Thread %d]\n", tdL.idThread);
+                        perror("Eroare la read() de la dimesiune la Inregistrare-name\n");
+                        break;
+
+                    }
+                    bzero(&name, size_recive + 1);
+
+                    if (read(tdL.cl, &name, size_recive) <= 0) {
+                        printf("[Thread %d]\n", tdL.idThread);
+                        perror("Eroare la read() de la client.\n");
+                        break;
+
+                    }
+
+                    if (read(tdL.cl, &size_recive, sizeof(size_recive)) <= 0) {
+                        printf("[Thread %d]\n", tdL.idThread);
+                        perror("Eroare la read() de la dimesiune la Inregistrare-pass\n");
+                        break;
+
+                    }
+                    bzero(&pass, size_recive + 1);
+
+                    if (read(tdL.cl, &pass, size_recive) <= 0) {
+                        printf("[Thread %d]\n", tdL.idThread);
+                        perror("Eroare la read() de la client.\n");
+                        break;
+
+                    }
+
+
+                    if (read(tdL.cl, &size_recive, sizeof(size_recive)) <= 0) {
+                        printf("[Thread %d]\n", tdL.idThread);
+                        perror("Eroare la read() de la dimesiune la Inregistrare-key\n");
+                        break;
+
+                    }
+                    bzero(&key, size_recive + 1);
+
+                    if (read(tdL.cl, &key, size_recive) <= 0) {
+                        printf("[Thread %d]\n", tdL.idThread);
+                        perror("Eroare la read() de la client.\n");
+                        break;
+
+                    }
+
+                    char* ok="0";
+                    ifstream file ("../file.json");
+                    json login = json ::parse(file);
+                    for(auto logi:login["admins"])
+                    {
+                        string usersname=logi["name"];
+                        string  password=logi["pass"];
+                        string keys=logi["key"];
+                        cout<<usersname<<" "<<password<<" "<<keys<<endl;
+                        cout<<name<<" "<<pass<<" "<<key<<endl<<endl;
+                        if(pass ==password && name==usersname)
+                        {
+                            if(key==keys)
+                            {
+                                cout<<"gasit"<<endl;
+                                ok="1";
                                 break;
+                            }
 
+
+
+                        }
+
+                    }
+                    Write(tdL.cl,ok);
+                    break ;
+
+                }
+
+                case 2:{
+
+                    break;
+                }
+
+                case 3:{
+
+                    break;
+                }
+
+                case 4: {
+                    Close((intptr_t) arg);
+                    cout << "Am terminat conexiunea cu  [Threadul]: " << tdL.idThread << endl;
+                    break;
+                }
+
+                case 5:{
+
+                    break;
+                }
+
+                case 6:{
+
+                    break;
+                }
+
+                case 7:{
+                    ifstream file ("../file.json");
+                    json login = json ::parse(file);
+                    string usr,pre;
+                    int i = login["users"].size();
+                        write(tdL.cl,&i, sizeof(i));
+                    for(auto logi:login["users"])
+                    {
+                            pre=logi["name"];
+                            Write(tdL.cl,pre);
+
+                    }
+                  // cout<<da;
+
+
+                    break;
+                }
+
+                case 8:{
+                    char name_song[1024]="\0";
+                    char link_youtube[1024]="\0";
+                    char gen[1024]="\0";
+                    char descriere[1024]="\0";
+                    char nr_gen[1024]="\0";
+
+
+                    //nume melodie
+                    if (read(tdL.cl, &size_recive, sizeof(size_recive)) <= 0) {
+                        printf("[Thread %d]\n", tdL.idThread);
+                        perror("Eroare la read() de la dimesiune la Inregistrare-name\n");
+                        break;
+
+                    }
+                    bzero(&name_song, size_recive + 1);
+
+                    if (read(tdL.cl, &name_song, size_recive) <= 0) {
+                        printf("[Thread %d]\n", tdL.idThread);
+                        perror("Eroare la read() de la client.\n");
+                        break;
+
+                    }
+
+
+                    //link youtube
+                    if (read(tdL.cl, &size_recive, sizeof(size_recive)) <= 0) {
+                        printf("[Thread %d]\n", tdL.idThread);
+                        perror("Eroare la read() de la dimesiune la Inregistrare-name\n");
+                        break;
+
+                    }
+                    bzero(&link_youtube, size_recive + 1);
+
+                    if (read(tdL.cl, &link_youtube, size_recive) <= 0) {
+                        printf("[Thread %d]\n", tdL.idThread);
+                        perror("Eroare la read() de la client.\n");
+                        break;
+
+                    }
+
+                    //descriere melodie
+
+                    if (read(tdL.cl, &size_recive, sizeof(size_recive)) <= 0) {
+                        printf("[Thread %d]\n", tdL.idThread);
+                        perror("Eroare la read() de la dimesiune la Inregistrare-name\n");
+                        break;
+
+                    }
+                    bzero(&descriere, size_recive + 1);
+
+                    if (read(tdL.cl, &descriere, size_recive) <= 0) {
+                        printf("[Thread %d]\n", tdL.idThread);
+                        perror("Eroare la read() de la client.\n");
+                        break;
+
+                    }
+
+                    //numar de genuri muzicale
+                    if (read(tdL.cl, &size_recive, sizeof(size_recive)) <= 0) {
+                        printf("[Thread %d]\n", tdL.idThread);
+                        perror("Eroare la read() de la dimesiune la Inregistrare-name\n");
+                        break;
+
+                    }
+                    bzero(&nr_gen, size_recive + 1);
+
+                    if (read(tdL.cl, &nr_gen, size_recive) <= 0) {
+                        printf("[Thread %d]\n", tdL.idThread);
+                        perror("Eroare la read() de la client.\n");
+                        break;
+
+                    }
+
+                    int nrx=atoi(nr_gen);
+
+                    mu.lock();
+                    json x;
+                    for(int i=0;i<nrx;i++)
+                    {
+
+                        if (read(tdL.cl, &size_recive, sizeof(size_recive)) <= 0) {
+                            printf("[Thread %d]\n", tdL.idThread);
+                            perror("Eroare la read() de la dimesiune la Inregistrare-name\n");
+                            break;
+
+                        }
+                        bzero(&gen, size_recive + 1);
+
+                        if (read(tdL.cl, &gen, size_recive) <= 0) {
+                            printf("[Thread %d]\n", tdL.idThread);
+                            perror("Eroare la read() de la client.\n");
+                            break;
+
+                        }
+
+                        x["genuri"]["gen"][i]=gen;
+                    }
+                    x["name"] = name_song;
+                    x["link"] = link_youtube;
+                    x["descriere"] = descriere;
+                    x["numar de voturi"]=0;
+
+
+
+
+                    j["songs"].push_back(x);
+                    ofstream o("../file.json");
+                    o << setw(4) << j << endl;
+                    mu.unlock();
+
+
+
+
+
+
+
+
+
+                    break;
+                }
+                default:
+                    break;
             }
-            case 4: {
-                Close((intptr_t) arg);
-                cout << "Am terminat conexiunea cu  [Threadul]: " << tdL.idThread << endl;
+            if(comanda==4)
                 break;
 
-            }
-            default:
-                break;
         }
         break;
     }
-
-
+    default:
+        break;
     }
+}
