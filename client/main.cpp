@@ -27,7 +27,7 @@ int port;
 
 void quit(char input[1024]);
 
-int main (int argc, char *argv[]) {
+int main(int argc, char *argv[]) {
     int sd;            // descriptorul de socket
     struct sockaddr_in server;    // structura folosita pentru conectare
     // mesajul trimis
@@ -38,7 +38,7 @@ int main (int argc, char *argv[]) {
     long size_recive;
     long size_send;
     int comanda;
-    int type_user=3;
+    int type_user = 3;
     bool connected;
     /* exista toate argumentele in linia de comanda? */
     if (argc != 3) {
@@ -70,26 +70,25 @@ int main (int argc, char *argv[]) {
         return errno;
     }
     citirecomanda:
-    do{
+    do {
         cout << "0.user" << endl;
         cout << "1.admin" << endl;
         cout << "comanda: ";
         cin >> type_user;
-    }while (type_user>1);
+    } while (type_user > 1);
 
     string type_send;
-    if(type_user==0)
-        type_send="0";
+    if (type_user == 0)
+        type_send = "0";
     else
-        type_send="1";
+        type_send = "1";
 
-    Write(sd,type_send);
+    Write(sd, type_send);
     while (1) {
         /* citirea mesajului */
 
 
-        switch (type_user)
-        {
+        switch (type_user) {
 
 
             case 0 : {
@@ -102,20 +101,18 @@ int main (int argc, char *argv[]) {
                 cout << "4.Quit" << endl;
 
                 fflush(stdout);
-                do{
+                do {
                     cout << "Introduceti numarul  comenzii: ";
                     cin >> comanda;
-                    cout<<comanda<<endl;
-                    cout<<endl;
+                    cout << comanda << endl;
+                    cout << endl;
 
-                }while(comanda>4 || comanda <0);
-
+                } while (comanda > 4 || comanda < 0);
 
 
                 switch (comanda) {
 
-                    case 0:
-                        {
+                    case 0: {
                         char name[1024] = "\0";
                         char pass[1024] = "\0";
                         strcpy(input, "0");
@@ -133,8 +130,7 @@ int main (int argc, char *argv[]) {
 
                     }
 
-                    case 1:
-                        {
+                    case 1: {
                         char name[1024] = "\0";
                         char pass[1024] = "\0";
                         strcpy(input, "1");
@@ -147,57 +143,53 @@ int main (int argc, char *argv[]) {
                         cout << endl << "Introduceti parola: ";
                         cin >> pass;
                         Write(sd, pass);
-                        read(sd,&size_recive, sizeof(size_recive));
-                        bzero(recive,size_recive+1);
-                        read(sd,recive,size_recive);
-                        cout<<recive<<"--"<<endl;
+                        read(sd, &size_recive, sizeof(size_recive));
+                        bzero(recive, size_recive + 1);
+                        read(sd, recive, size_recive);
+                        cout << recive << "--" << endl;
                         connected = atoi(recive);
-                        switch (connected)
-                        {
+                        switch (connected) {
                             case 0: {
-                                cout<<"erroare la connetare"<<endl;
+                                cout << "erroare la connetare" << endl;
                                 goto top;
 
                             }
                             case 1: {
 
-                                cout<<"Bine ai venit "<<name<<endl;
+                                cout << "Bine ai venit " << name << endl;
                                 top_usr_connected:
                                 cout << "2.Top" << endl;
                                 cout << "3.Top-gen" << endl;
                                 cout << "4.Quit" << endl;
-                                cout << "5.Vote" <<endl;
-                                cout << "6.Comment" <<endl;
-                                cout << "7.Search" <<endl;
-                                cout << "8.Deconectare" <<endl;
+                                cout << "5.Vote" << endl;
+                                cout << "6.Comment" << endl;
+                                cout << "7.Search" << endl;
+                                cout << "8.Deconectare" << endl;
 
-                                do{
+                                do {
                                     cout << "Introduceti numarul  comenzii: ";
                                     cin >> comanda;
-                                    cout<<comanda<<endl;
-                                    cout<<endl;
+                                    cout << comanda << endl;
+                                    cout << endl;
 
-                                }while(comanda>8 || comanda <0);
+                                } while (comanda > 8 || comanda < 0);
 
-                                switch (comanda)
-                                {
+                                switch (comanda) {
 
-                                    case 4:
-                                        {
+                                    case 4: {
                                         strcpy(input, "4");
                                         Write(sd, input);
                                         Close(sd);
                                         return 0;
                                     }
 
-                                    case 5:
-                                    {
+                                    case 5: {
                                         strcpy(input, "5");
                                         Write(sd, input);
-                                        char name_song[1024]="\0";
-                                        cout<<"Introdu numele melodiei care doresti sa o votezi: ";
-                                        cin>>name_song;
-                                        Write(sd,name_song);
+                                        char name_song[1024] = "\0";
+                                        cout << "Introdu numele melodiei care doresti sa o votezi: ";
+                                        cin >> name_song;
+                                        Write(sd, name_song);
 
                                         if (read(sd, &size_recive, sizeof(size_recive)) <= 0) {
                                             perror("Eroare la read() de la dimesiune la Inregistrare-name\n");
@@ -212,34 +204,31 @@ int main (int argc, char *argv[]) {
 
                                         }
 
-                                        if (input=="1")
-                                            cout<<"Nu s-a votat!"<<endl;
+                                        if (input == "1")
+                                            cout << "Nu s-a votat!" << endl;
 
                                         else
-                                            cout<<"S-a votat melodia:"<<name_song<<endl;
+                                            cout << "S-a votat melodia:" << name_song << endl;
 
-                                        cout<<input;
+                                        cout << input;
                                         goto top_usr_connected;
 
 
-
                                     }
-                                    case 8:
-                                    {
+                                    case 8: {
                                         strcpy(input, "8");
 
                                         Write(sd, input);
-                                        connected=0;
+                                        connected = 0;
                                         goto citirecomanda;
                                     }
 
                                 }
 
 
-
                             }
 
-                            }
+                        }
 
                     }
 
@@ -249,8 +238,7 @@ int main (int argc, char *argv[]) {
                         Close(sd);
                         return 0;
                     }
-                    case 8:
-                    {
+                    case 8: {
                         goto citirecomanda;
                     }
 
@@ -261,8 +249,7 @@ int main (int argc, char *argv[]) {
 
 
             }
-            case 1:
-            {
+            case 1: {
                 top_adm:
                 cout << "0.Inregistrare" << endl;
                 cout << "1.Login" << endl;
@@ -272,20 +259,20 @@ int main (int argc, char *argv[]) {
 
 
                 fflush(stdout);
-                do{
+                do {
                     cout << "Introduceti numarul  comenzii: ";
                     cin >> comanda;
-                    cout<<comanda<<endl;
-                    cout<<endl;
+                    cout << comanda << endl;
+                    cout << endl;
 
-                }while(comanda>8 || comanda <0);
+                } while (comanda > 8 || comanda < 0);
 
                 switch (comanda) {
 
                     case 0: {
                         char name[1024] = "\0";
                         char pass[1024] = "\0";
-                        char key[1024]="\0";
+                        char key[1024] = "\0";
                         strcpy(input, "0");
                         Write(sd, input);
 
@@ -296,18 +283,18 @@ int main (int argc, char *argv[]) {
                         cout << endl << "Introduceti parola dorita: ";
                         cin >> pass;
                         Write(sd, pass);
-                        cout<<endl<< "Introduceti key-ul secret: ";
-                        cin>>key;
-                        Write(sd,key);
+                        cout << endl << "Introduceti key-ul secret: ";
+                        cin >> key;
+                        Write(sd, key);
 
                         goto top_adm;
 
                     }
 
-                    case 1:{
+                    case 1: {
                         char name[1024] = "\0";
                         char pass[1024] = "\0";
-                        char key[1024]="\0";
+                        char key[1024] = "\0";
                         strcpy(input, "1");
                         Write(sd, input);
 
@@ -319,48 +306,46 @@ int main (int argc, char *argv[]) {
                         cin >> pass;
                         Write(sd, pass);
 
-                        cout<<endl<<"Introduceti key: ";
-                        cin>>key;
-                        Write(sd,key);
+                        cout << endl << "Introduceti key: ";
+                        cin >> key;
+                        Write(sd, key);
 
-                        read(sd,&size_recive, sizeof(size_recive));
-                        bzero(recive,size_recive+1);
-                        read(sd,recive,size_recive);
-                        cout<<recive<<"--"<<endl;
+                        read(sd, &size_recive, sizeof(size_recive));
+                        bzero(recive, size_recive + 1);
+                        read(sd, recive, size_recive);
+                        cout << recive << "--" << endl;
                         connected = atoi(recive);
-                        switch (connected)
-                        {
+                        switch (connected) {
                             case 0: {
-                                cout<<"erroare la connetare"<<endl<<endl;
+                                cout << "erroare la connetare" << endl << endl;
                                 goto top_adm;
 
                             }
                             case 1: {
 
-                                cout<<"Bine ai venit "<<name<<endl;
+                                cout << "Bine ai venit " << name << endl;
                                 top_adm_connected:
                                 cout << "2.Top" << endl;
                                 cout << "3.Top-gen" << endl;
                                 cout << "4.Quit" << endl;
-                                cout << "5.Mute user"<<endl;
-                                cout << "6.Unmute user"<<endl;
-                                cout << "7.List users"<<endl;
-                                cout << "8.Add song" <<endl;
-                                cout << "9.Deconectare"<<endl;
+                                cout << "5.Mute user" << endl;
+                                cout << "6.Unmute user" << endl;
+                                cout << "7.List users" << endl;
+                                cout << "8.Add song" << endl;
+                                cout << "9.Deconectare" << endl;
 
                                 fflush(stdout);
-                                do{
+                                do {
                                     cout << "Introduceti numarul  comenzii: ";
                                     cin >> comanda;
-                                    cout<<comanda<<endl;
-                                    cout<<endl;
+                                    cout << comanda << endl;
+                                    cout << endl;
 
-                                }while(comanda>9 || comanda <0);
+                                } while (comanda > 9 || comanda < 0);
 
-                                switch (comanda){
+                                switch (comanda) {
 
-                                    case 2:
-                                    {
+                                    case 2: {
                                         strcpy(input, "4");
                                         Write(sd, input);
                                     }
@@ -371,14 +356,13 @@ int main (int argc, char *argv[]) {
                                         Close(sd);
                                         return 0;
                                     }
-                                    case 7:{
-                                            int size_memb=0;
+                                    case 7: {
+                                        int size_memb = 0;
                                         strcpy(input, "7");
                                         Write(sd, input);
 
-                                        read(sd,&size_memb, sizeof(size_memb));
-                                        for(int i=0;i<size_memb;i++)
-                                        {
+                                        read(sd, &size_memb, sizeof(size_memb));
+                                        for (int i = 0; i < size_memb; i++) {
                                             if (read(sd, &size_recive, sizeof(size_recive)) <= 0) {
                                                 perror("Eroare la read() de la dimesiune la Inregistrare-name\n");
                                                 break;
@@ -392,57 +376,54 @@ int main (int argc, char *argv[]) {
 
                                             }
 
-                                            cout<<input<<endl;
+                                            cout << input << endl;
                                         }
 
                                         break;
                                     }
 
-                                    case 8:
-                                    {
+                                    case 8: {
                                         strcpy(input, "8");
                                         Write(sd, input);
-                                        char name_song[1024]="\0";
-                                        char link_youtube[1024]="\0";
-                                        char gen[1024]="\0";
-                                        char descriere[1024]="\0";
-                                        char nr_gen[1024]="\0";
+                                        char name_song[1024] = "\0";
+                                        char link_youtube[1024] = "\0";
+                                        char gen[1024] = "\0";
+                                        char descriere[1024] = "\0";
+                                        char nr_gen[1024] = "\0";
 
-                                         cout<<"Numele melodiei: ";
-                                         cin>>name_song;
-                                         Write(sd,name_song);
-
-
-                                         cout<<endl<<"Link youtube: ";
-                                         cin>>link_youtube;
-                                         Write(sd,link_youtube);
-
-                                         cout<<"Descriere melodie: ";
-                                         cin>>descriere;
-                                         Write(sd,descriere);
-
-                                         cout<<endl<<"Numar de genuri care apartine melodia: ";
-                                         cin>>nr_gen;
+                                        cout << "Numele melodiei: ";
+                                        cin >> name_song;
+                                        Write(sd, name_song);
 
 
+                                        cout << endl << "Link youtube: ";
+                                        cin >> link_youtube;
+                                        Write(sd, link_youtube);
 
-                                         Write(sd,nr_gen);
+                                        cout << "Descriere melodie: ";
+                                        cin >> descriere;
+                                        Write(sd, descriere);
 
-                                         int nr_g=atoi(nr_gen);
-                                         for(int i=0;i<nr_g;i++)
-                                         {
-                                             cout<<"Genul melodiei: ";
-                                             cin>>gen;
-                                             Write(sd,gen);
-                                             cout<<endl;
-                                         }
+                                        cout << endl << "Numar de genuri care apartine melodia: ";
+                                        cin >> nr_gen;
+
+
+                                        Write(sd, nr_gen);
+
+                                        int nr_g = atoi(nr_gen);
+                                        for (int i = 0; i < nr_g; i++) {
+                                            cout << "Genul melodiei: ";
+                                            cin >> gen;
+                                            Write(sd, gen);
+                                            cout << endl;
+                                        }
                                         break;
                                     }
                                     case 9: {
                                         strcpy(input, "9");
 
                                         Write(sd, input);
-                                        connected=0;
+                                        connected = 0;
                                         goto citirecomanda;
                                     }
 
@@ -473,9 +454,7 @@ int main (int argc, char *argv[]) {
                 }
             }
 
-            }
-
-
+        }
 
 
     }
