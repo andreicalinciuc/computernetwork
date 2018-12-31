@@ -69,7 +69,7 @@ int main (int argc, char *argv[]) {
         perror("[client]Eroare la connect().\n");
         return errno;
     }
-
+    citirecomanda:
     do{
         cout << "0.user" << endl;
         cout << "1.admin" << endl;
@@ -114,7 +114,8 @@ int main (int argc, char *argv[]) {
 
                 switch (comanda) {
 
-                    case 0: {
+                    case 0:
+                        {
                         char name[1024] = "\0";
                         char pass[1024] = "\0";
                         strcpy(input, "0");
@@ -132,7 +133,8 @@ int main (int argc, char *argv[]) {
 
                     }
 
-                    case 1:{
+                    case 1:
+                        {
                         char name[1024] = "\0";
                         char pass[1024] = "\0";
                         strcpy(input, "1");
@@ -160,14 +162,79 @@ int main (int argc, char *argv[]) {
                             case 1: {
 
                                 cout<<"Bine ai venit "<<name<<endl;
+                                top_usr_connected:
                                 cout << "2.Top" << endl;
                                 cout << "3.Top-gen" << endl;
                                 cout << "4.Quit" << endl;
                                 cout << "5.Vote" <<endl;
-                                cout<<"6.Comment" <<endl;
-                                cout<<"7.Search" <<endl;
+                                cout << "6.Comment" <<endl;
+                                cout << "7.Search" <<endl;
+                                cout << "8.Deconectare" <<endl;
 
-                                goto top;
+                                do{
+                                    cout << "Introduceti numarul  comenzii: ";
+                                    cin >> comanda;
+                                    cout<<comanda<<endl;
+                                    cout<<endl;
+
+                                }while(comanda>8 || comanda <0);
+
+                                switch (comanda)
+                                {
+
+                                    case 4:
+                                        {
+                                        strcpy(input, "4");
+                                        Write(sd, input);
+                                        Close(sd);
+                                        return 0;
+                                    }
+
+                                    case 5:
+                                    {
+                                        strcpy(input, "5");
+                                        Write(sd, input);
+                                        char name_song[1024]="\0";
+                                        cout<<"Introdu numele melodiei care doresti sa o votezi: ";
+                                        cin>>name_song;
+                                        Write(sd,name_song);
+
+                                        if (read(sd, &size_recive, sizeof(size_recive)) <= 0) {
+                                            perror("Eroare la read() de la dimesiune la Inregistrare-name\n");
+                                            break;
+
+                                        }
+                                        bzero(&input, size_recive + 1);
+
+                                        if (read(sd, input, size_recive) <= 0) {
+                                            perror("Eroare la read() de la client.\n");
+                                            break;
+
+                                        }
+
+                                        if (input=="1")
+                                            cout<<"Nu s-a votat!"<<endl;
+
+                                        else
+                                            cout<<"S-a votat melodia:"<<name_song<<endl;
+
+                                        cout<<input;
+                                        goto top_usr_connected;
+
+
+
+                                    }
+                                    case 8:
+                                    {
+                                        strcpy(input, "8");
+
+                                        Write(sd, input);
+                                        connected=0;
+                                        goto citirecomanda;
+                                    }
+
+                                }
+
 
 
                             }
@@ -181,6 +248,10 @@ int main (int argc, char *argv[]) {
                         Write(sd, input);
                         Close(sd);
                         return 0;
+                    }
+                    case 8:
+                    {
+                        goto citirecomanda;
                     }
 
                     default:
@@ -272,9 +343,10 @@ int main (int argc, char *argv[]) {
                                 cout << "3.Top-gen" << endl;
                                 cout << "4.Quit" << endl;
                                 cout << "5.Mute user"<<endl;
-                                cout << "6.Delete user"<<endl;
+                                cout << "6.Unmute user"<<endl;
                                 cout << "7.List users"<<endl;
                                 cout << "8.Add song" <<endl;
+                                cout << "9.Deconectare"<<endl;
 
                                 fflush(stdout);
                                 do{
@@ -283,9 +355,15 @@ int main (int argc, char *argv[]) {
                                     cout<<comanda<<endl;
                                     cout<<endl;
 
-                                }while(comanda>8 || comanda <0);
+                                }while(comanda>9 || comanda <0);
 
                                 switch (comanda){
+
+                                    case 2:
+                                    {
+                                        strcpy(input, "4");
+                                        Write(sd, input);
+                                    }
 
                                     case 4: {
                                         strcpy(input, "4");
@@ -359,6 +437,13 @@ int main (int argc, char *argv[]) {
                                              cout<<endl;
                                          }
                                         break;
+                                    }
+                                    case 9: {
+                                        strcpy(input, "9");
+
+                                        Write(sd, input);
+                                        connected=0;
+                                        goto citirecomanda;
                                     }
 
                                     default:

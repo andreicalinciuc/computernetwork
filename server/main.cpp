@@ -154,7 +154,7 @@ void raspunde(void *arg)
     struct thData tdL;
     tdL= *((struct thData*)arg);
     char type_user[1024];
-
+    citireusr:
     if (read(tdL.cl, &size_recive, sizeof(size_recive)) <= 0) {
         printf("[Thread %d]\n", tdL.idThread);
         perror("Eroare la read() de la dimesiune\n");
@@ -179,7 +179,6 @@ switch (usr){
             size_send = 0;
 
             using json = nlohmann::json;
-            std:
             ifstream file("../file.json");
             json j;
             file >> j;
@@ -198,6 +197,7 @@ switch (usr){
             if (read(tdL.cl, &recive, size_recive) <= 0) {
                 printf("[Thread %d]\n", tdL.idThread);
                 perror("Eroare la read() de la client.\n");
+                break;
 
             }
 
@@ -243,12 +243,12 @@ switch (usr){
                     json x;
                     x["name"] = name;
                     x["pass"] = pass;
-                    x["drept de vot"] = 0;
+                    x["drept de vot"] = 1;
                     j["users"].push_back(x);
                     ofstream o("../file.json");
                     o << setw(4) << j << endl;
                     mu.unlock();
-                    cout<<"Am inregistrat pe "<<name <<" cu parola" <<pass<<endl;
+                    cout<<"Am inregistrat pe -"<<name <<"- cu parola -" <<pass<<"-"<<endl;
                     break;
                 }
                 case 1:
@@ -304,12 +304,64 @@ switch (usr){
                     break ;
 
                 }
+
                 case 4: {
                     Close((intptr_t) arg);
                     cout << "Am terminat conexiunea cu  [Threadul]: " << tdL.idThread << endl;
                     break;
 
                 }
+                case 5:
+                {
+                    char name_song[1024]="\0";
+
+                    if (read(tdL.cl, &size_recive, sizeof(size_recive)) <= 0) {
+                        printf("[Thread %d]\n", tdL.idThread);
+                        perror("Eroare la read() de la dimesiune\n");
+                        break;
+
+
+                    }
+                    bzero(&name_song, size_recive + 1);
+
+                    if (read(tdL.cl, &name_song, size_recive) <= 0) {
+                        printf("[Thread %d]\n", tdL.idThread);
+                        perror("Eroare la read() de la client.\n");
+                        break;
+
+                    }
+                    mu.lock();
+                    ifstream file ("../file.json");
+                    json login = json ::parse(file);
+
+                    int j = login["songs"].size();
+                        cout<<i<<endl;
+                        string votat="0";
+                    for(int i=0;i<j;i++)
+                    {
+                        cout<<login["songs"][i]["name"]<<endl;
+                        if(login["songs"][i]["name"]==name_song)
+                        {
+                            int x= login["songs"][i]["numar de voturi"];
+                            x++;
+                            login["songs"][i]["numar de voturi"]=x;
+                            votat="1";
+                        }
+
+
+                    }
+                    ofstream o("../file.json");
+                    o << setw(4) << login << endl;
+                    mu.unlock();
+
+                    Write(tdL.cl,votat);
+                    break;
+
+
+                }
+
+                case 8:
+                    goto citireusr;
                 default:
                     break;
             }
@@ -643,6 +695,7 @@ switch (usr){
                     x["link"] = link_youtube;
                     x["descriere"] = descriere;
                     x["numar de voturi"]=0;
+                    x["comentarii"]="-";
 
 
 
@@ -661,6 +714,10 @@ switch (usr){
 
 
                     break;
+                }
+                case 9:
+                {
+                    goto citireusr;
                 }
                 default:
                     break;

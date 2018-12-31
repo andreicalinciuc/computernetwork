@@ -1,155 +1,84 @@
 {
     "admins": [
         {
-            "key": "pass",
-            "name": "adsadsd",
-            "pass": "da"
-        },
-        {
-            "key": "13322",
-            "name": "nicu",
-            "pass": "da"
-        },
-        {
-            "key": "key",
-            "name": "doru",
-            "pass": "dar"
-        },
-        {
-            "key": "admin",
-            "name": "andrei",
-            "pass": "admin"
-        },
-        {
             "key": "admin",
             "name": "admin",
             "pass": "admin"
-        },
-        {
-            "key": "123",
-            "name": "dar",
-            "pass": "bar"
-        },
-        {
-            "key": "2",
-            "name": "dd",
-            "pass": "9"
-        },
-        {
-            "key": "3",
-            "name": "da",
-            "pass": "da"
-        },
-        {
-            "key": "4",
-            "name": "da",
-            "pass": "da"
         }
     ],
     "songs": [
         {
-            "descriere": "deasdadsadsaaaaaaaaaaaa",
+            "descriere": "aha",
             "genuri": {
                 "gen": [
-                    "dasda",
-                    "drrg",
-                    "fdsfsd",
-                    "sda"
+                    "manele",
+                    "viata",
+                    "toate"
                 ]
             },
-            "link": "de",
-            "name": "da",
+            "link": "da",
+            "name": "susanu",
             "numar de voturi": 0
         },
         {
-            "comentarii": null,
-            "descriere": "fdsasddfa",
+            "descriere": "de",
             "genuri": {
                 "gen": [
-                    "manele"
+                    "da"
                 ]
             },
-            "link": "asddsaasd",
-            "name": "dasads",
-            "numar de voturi": 0
-        },
-        {
-            "descriere": "da",
             "link": "da",
             "name": "da",
-            "numar de voturi": 0
+            "numar de voturi": 7
+        },
+        {
+            "comentarii": "-",
+            "descriere": "macarenaaaaaaaaaaa",
+            "genuri": {
+                "gen": [
+                    "macarena"
+                ]
+            },
+            "link": "da",
+            "name": "macarena",
+            "numar de voturi": 1
         }
     ],
     "users": [
         {
-            "drept de vot": 0,
-            "name": "andrei",
-            "pass": "admin"
+            "drept de vot": 1,
+            "name": "dadassda",
+            "pass": "dasdsadas"
         },
         {
-            "drept de vot": 0,
-            "name": "dinu",
-            "pass": "pinguinu"
-        },
-        {
-            "drept de vot": 0,
-            "name": "nicur",
-            "pass": "brez"
-        },
-        {
-            "drept de vot": 0,
-            "name": "das",
-            "pass": "nico"
-        },
-        {
-            "drept de vot": 0,
-            "name": "0",
-            "pass": "dar"
-        },
-        {
-            "drept de vot": 0,
-            "name": "pingu",
-            "pass": "123"
-        },
-        {
-            "drept de vot": 0,
-            "name": "bre",
-            "pass": "da"
-        },
-        {
-            "drept de vot": 0,
-            "name": "indrodu",
-            "pass": "nico"
-        },
-        {
-            "drept de vot": 0,
-            "name": "dreb",
-            "pass": "nora"
-        },
-        {
-            "drept de vot": 0,
-            "name": "0",
-            "pass": "bicu"
-        },
-        {
-            "drept de vot": 0,
-            "name": "dr",
-            "pass": "br"
-        },
-        {
-            "drept de vot": 0,
-            "name": "dinu",
-            "pass": "caz"
-        },
-        {
-            "drept de vot": 0,
+            "drept de vot": 1,
             "name": "user",
             "pass": "user"
         },
         {
-            "drept de vot": 0,
-            "name": "niculee",
-            "pass": "barabuula"
+            "drept de vot": 1,
+            "name": "dar",
+            "pass": "dar"
+        },
+        {
+            "drept de vot": 1,
+            "name": "nic",
+            "pass": "noce"
+        },
+        {
+            "drept de vot": 1,
+            "name": "bixi",
+            "pass": "bum"
+        },
+        {
+            "drept de vot": 1,
+            "name": "bixos",
+            "pass": "bids"
+        },
+        {
+            "drept de vot": 1,
+            "name": "1",
+            "pass": "user"
         }
     ]
 }
