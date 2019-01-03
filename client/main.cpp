@@ -175,6 +175,11 @@ int main(int argc, char *argv[]) {
                                 } while (comanda > 8 || comanda < 0);
 
                                 switch (comanda) {
+                                    case 2:
+                                    {
+                                        strcpy(input, "2");
+                                        Write(sd, input);
+                                    }
 
                                     case 4: {
                                         strcpy(input, "4");
@@ -231,6 +236,11 @@ int main(int argc, char *argv[]) {
                         }
 
                     }
+                    case 2:{
+
+                        strcpy(input, "2");
+                        Write(sd, input);
+                    }
 
                     case 4: {
                         strcpy(input, "4");
@@ -269,7 +279,7 @@ int main(int argc, char *argv[]) {
 
                 switch (comanda) {
 
-                    case 0: {
+                    case 0: {  //inregistrare
                         char name[1024] = "\0";
                         char pass[1024] = "\0";
                         char key[1024] = "\0";
@@ -291,7 +301,7 @@ int main(int argc, char *argv[]) {
 
                     }
 
-                    case 1: {
+                    case 1: {  //login
                         char name[1024] = "\0";
                         char pass[1024] = "\0";
                         char key[1024] = "\0";
@@ -345,18 +355,24 @@ int main(int argc, char *argv[]) {
 
                                 switch (comanda) {
 
-                                    case 2: {
-                                        strcpy(input, "4");
+                                    case 2: {  //top
+                                        strcpy(input, "2");
                                         Write(sd, input);
                                     }
 
-                                    case 4: {
+                                    case 3: {  //top gen
+                                        strcpy(input, "3");
+                                        Write(sd, input);
+                                    }
+
+
+                                    case 4: { //quit
                                         strcpy(input, "4");
                                         Write(sd, input);
                                         Close(sd);
                                         return 0;
                                     }
-                                    case 7: {
+                                    case 7: { // lista membrii
                                         int size_memb = 0;
                                         strcpy(input, "7");
                                         Write(sd, input);
@@ -382,7 +398,7 @@ int main(int argc, char *argv[]) {
                                         break;
                                     }
 
-                                    case 8: {
+                                    case 8: {  //add song
                                         strcpy(input, "8");
                                         Write(sd, input);
                                         char name_song[1024] = "\0";
@@ -419,7 +435,7 @@ int main(int argc, char *argv[]) {
                                         }
                                         break;
                                     }
-                                    case 9: {
+                                    case 9: {  //deconectare
                                         strcpy(input, "9");
 
                                         Write(sd, input);
@@ -438,6 +454,11 @@ int main(int argc, char *argv[]) {
 
                         }
 
+                    }
+                    case 2:
+                    {
+                        strcpy(input, "2");
+                        Write(sd, input);
                     }
                     case 4: {
                         strcpy(input, "4");

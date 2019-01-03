@@ -32,10 +32,32 @@ std::mutex mu;
 /* portul folosit */
 #define PORT 2908
 using namespace std;
+using json = nlohmann::json;
+
 typedef struct thData {
     int idThread; //id-ul thread-ului tinut in evidenta de acest program
     int cl; //descriptorul intors de accept
 } thData;
+
+struct musics {
+    string name;
+    int nr_vot;
+    string gen;
+} music[1000];
+
+void selectionSort(musics Vector[], int N) {
+    for (int i = 0; i < N - 1; i++) {
+        for (int j = i + 1; j < N; j++) {
+            if (music[i].nr_vot > music[j].nr_vot) {
+                musics aux = music[i];
+                music[i] = music[j];
+                music[j] = aux;
+            }
+        }
+    }
+}
+
+
 
 static void *treat(void *); /* functia executata de fiecare thread ce realizeaza comunicarea cu clientii */
 void raspunde(void *);
@@ -43,12 +65,9 @@ void raspunde(void *);
 int main() {
     struct sockaddr_in server;    // structura folosita de server
     struct sockaddr_in from;
-    int nr;        //mesajul primit de trimis la client
     int sd;        //descriptorul de socket
-    int pid;
     pthread_t th[100];    //Identificatorii thread-urilor care se vor crea
     int i = 0;
-    char recive[1024];
 
 
     /* crearea unui socket */
@@ -126,13 +145,7 @@ static void *treat(void *arg) {
 
     raspunde((struct thData *) arg);
 
-
-
-
     /* am terminat cu acest client, inchidem conexiunea */
-
-
-
 
 };
 
@@ -146,6 +159,8 @@ void raspunde(void *arg) {
     struct thData tdL;
     tdL = *((struct thData *) arg);
     char type_user[1024];
+
+
     citireusr:
     if (read(tdL.cl, &size_recive, sizeof(size_recive)) <= 0) {
         printf("[Thread %d]\n", tdL.idThread);
@@ -290,14 +305,33 @@ void raspunde(void *arg) {
                         break;
 
                     }
+                    case 2: {
+                        ifstream file("../file.json");
+                        json login = json::parse(file);
+                        int j = 0;
+                        for (auto musc:login["songs"]) {
 
-                    case 4: {
+                            music[j].name = musc["name"];
+                            music[j].nr_vot = musc["numar de voturi"];
+                            j++;
+                        }
+
+                        selectionSort(music, j);
+                        for (int x = 0; x <= j; x++) {
+                            cout << endl;
+                            cout << music[x].name << endl;
+                            cout << music[x].nr_vot << endl;
+                        }
+                        break;
+                    }
+
+                    case 4: {  //quit
                         Close((intptr_t) arg);
                         cout << "Am terminat conexiunea cu  [Threadul]: " << tdL.idThread << endl;
                         break;
 
                     }
-                    case 5: {
+                    case 5: { //vote
                         char name_song[1024] = "\0";
 
                         if (read(tdL.cl, &size_recive, sizeof(size_recive)) <= 0) {
@@ -343,7 +377,7 @@ void raspunde(void *arg) {
 
                     }
 
-                    case 8:
+                    case 8: //deconectare
                         goto citireusr;
                     default:
                         break;
@@ -528,11 +562,49 @@ void raspunde(void *arg) {
                     }
 
                     case 2: {
+                        ifstream file("../file.json");
+                        json login = json::parse(file);
+                        int j = 0;
+                        for (auto musc:login["songs"]) {
 
+                            music[j].name = musc["name"];
+                            music[j].nr_vot = musc["numar de voturi"];
+                            cout<<musc["genuri"]["gen"];
+                            j++;
+                        }
+
+                        selectionSort(music, j);
+                        for (int x = 0; x <= j; x++) {
+                            cout << endl;
+                            cout << music[x].name << endl;
+                            cout << music[x].nr_vot << endl;
+                            cout<<  music[j].gen<<endl;
+                        }
                         break;
                     }
 
                     case 3: {
+
+                        ifstream file("../file.json");
+                        json login = json::parse(file);
+
+                        int j = 0;
+                        for (auto musc:login["songs"]) {
+
+                            music[j].name = musc["name"];
+                            music[j].nr_vot = musc["numar de voturi"];
+                            cout<<musc["genuri"]["gen"];
+                            j++;
+                        }
+
+                        selectionSort(music, j);
+                        for (int x = 0; x <= j; x++) {
+                            cout << endl;
+                            cout << music[x].name << endl;
+                            cout << music[x].nr_vot << endl;
+                            cout<<  music[j].gen<<endl;
+                        }
+                        break;
 
                         break;
                     }
@@ -564,8 +636,6 @@ void raspunde(void *arg) {
                             Write(tdL.cl, pre);
 
                         }
-                        // cout<<da;
-
 
                         break;
                     }
@@ -688,7 +758,7 @@ void raspunde(void *arg) {
                     default:
                         break;
                 }
-                if (comanda == 4)
+                if (comanda == 4 || comanda ==15)
                     break;
 
             }

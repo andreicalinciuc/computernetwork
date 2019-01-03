@@ -12,10 +12,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3611b47d-80d3-407a-a1ee-045dda10ee35" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../client/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../client/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../client/cmake-build-debug/client" beforeDir="false" afterPath="$PROJECT_DIR$/../client/cmake-build-debug/client" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../client/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../client/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Retele" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Retele" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/file.json" beforeDir="false" afterPath="$PROJECT_DIR$/file.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -30,10 +34,10 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="243">
-              <caret line="506" column="42" selection-start-line="506" selection-start-column="42" selection-end-line="506" selection-end-column="42" />
+            <state relative-caret-position="311">
+              <caret line="592" lean-forward="true" selection-start-line="592" selection-end-line="592" />
               <folding>
-                <element signature="e#372#394#0" expanded="true" />
+                <element signature="e#42#370#0" />
               </folding>
             </state>
           </provider>
@@ -42,8 +46,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/file.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="515">
-              <caret line="48" column="29" selection-start-line="48" selection-start-column="29" selection-end-line="48" selection-end-column="29" />
+            <state relative-caret-position="340">
+              <caret line="20" column="13" lean-forward="true" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -61,9 +65,15 @@
     <findStrings>
       <find>recive</find>
       <find>Read</find>
+      <find>ok</find>
+      <find>char *</find>
+      <find>logi</find>
+      <find>top</find>
     </findStrings>
     <replaceStrings>
       <replace>name</replace>
+      <replace>string</replace>
+      <replace>musc</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -79,9 +89,10 @@
       </list>
     </option>
   </component>
+  <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
   <component name="ProjectFrameBounds" extendedState="4">
     <option name="y" value="27" />
-    <option name="width" value="913" />
+    <option name="width" value="960" />
     <option name="height" value="992" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -148,12 +159,16 @@
       <workItem from="1546128992835" duration="2242000" />
       <workItem from="1546172807385" duration="5515000" />
       <workItem from="1546181111802" duration="9769000" />
-      <workItem from="1546204587592" duration="10363000" />
+      <workItem from="1546204587592" duration="10617000" />
+      <workItem from="1546429649140" duration="725000" />
+      <workItem from="1546440853623" duration="2495000" />
+      <workItem from="1546466383803" duration="599000" />
+      <workItem from="1546532209572" duration="8763000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="80798000" />
+    <option name="totallyTimeSpent" value="93634000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -165,15 +180,16 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="27" width="913" height="992" extended-state="4" />
+    <frame x="0" y="27" width="960" height="992" extended-state="4" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.37799564" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3293556" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32497013" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.39904422" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.28434888" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39904422" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3293556" />
@@ -220,17 +236,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/file.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="515">
-          <caret line="48" column="29" selection-start-line="48" selection-start-column="29" selection-end-line="48" selection-end-column="29" />
+        <state relative-caret-position="340">
+          <caret line="20" column="13" lean-forward="true" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="28" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="506" column="42" selection-start-line="506" selection-start-column="42" selection-end-line="506" selection-end-column="42" />
+        <state relative-caret-position="311">
+          <caret line="592" lean-forward="true" selection-start-line="592" selection-end-line="592" />
           <folding>
-            <element signature="e#372#394#0" expanded="true" />
+            <element signature="e#42#370#0" />
           </folding>
         </state>
       </provider>

@@ -12,10 +12,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0fe730d7-3b01-4599-a41d-aea0ac57ff3f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/client" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/client" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../server/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../server/cmake-build-debug/Retele" beforeDir="false" afterPath="$PROJECT_DIR$/../server/cmake-build-debug/Retele" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/file.json" beforeDir="false" afterPath="$PROJECT_DIR$/../server/file.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../server/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../server/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/server" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -30,8 +34,21 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="456" column="9" lean-forward="true" selection-start-line="456" selection-start-column="9" selection-end-line="456" selection-end-column="9" />
+            <state relative-caret-position="255">
+              <caret line="459" column="40" selection-start-line="459" selection-start-column="40" selection-end-line="459" selection-end-column="40" />
+              <folding>
+                <element signature="e#0#2#0" />
+                <element signature="e#43#212#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../Communication/CommunicationHelper.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-34">
+              <caret line="9" selection-start-line="9" selection-end-line="9" />
             </state>
           </provider>
         </entry>
@@ -43,6 +60,7 @@
       <find>size</find>
       <find>input</find>
       <find>Read</find>
+      <find>case 2</find>
     </findStrings>
     <replaceStrings>
       <replace>size_send</replace>
@@ -60,9 +78,9 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="4">
-    <option name="x" value="913" />
+    <option name="x" value="960" />
     <option name="y" value="27" />
-    <option name="width" value="1007" />
+    <option name="width" value="960" />
     <option name="height" value="992" />
   </component>
   <component name="ProjectView">
@@ -119,28 +137,33 @@
       <workItem from="1546128674867" duration="3824000" />
       <workItem from="1546172886649" duration="6321000" />
       <workItem from="1546181112350" duration="8623000" />
-      <workItem from="1546204587936" duration="10192000" />
+      <workItem from="1546204587936" duration="10448000" />
+      <workItem from="1546429599775" duration="768000" />
+      <workItem from="1546440853504" duration="1693000" />
+      <workItem from="1546466383554" duration="599000" />
+      <workItem from="1546532209559" duration="7927000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="72311000" />
+    <option name="totallyTimeSpent" value="83554000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="913" y="27" width="1007" height="992" extended-state="4" />
+    <frame x="960" y="27" width="960" height="992" extended-state="4" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.38562092" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.39665473" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.35364395" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39904422" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Database Changes" order="7" />
-      <window_info anchor="bottom" id="Messages" order="8" weight="0.31899643" />
+      <window_info anchor="bottom" id="Messages" order="8" weight="0.31780168" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.32735962" />
       <window_info anchor="bottom" id="Version Control" order="11" weight="0.3297491" />
@@ -158,10 +181,21 @@
     <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/../Communication/CommunicationHelper.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-34">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="456" column="9" lean-forward="true" selection-start-line="456" selection-start-column="9" selection-end-line="456" selection-end-column="9" />
+        <state relative-caret-position="255">
+          <caret line="459" column="40" selection-start-line="459" selection-start-column="40" selection-end-line="459" selection-end-column="40" />
+          <folding>
+            <element signature="e#0#2#0" />
+            <element signature="e#43#212#0" />
+          </folding>
         </state>
       </provider>
     </entry>

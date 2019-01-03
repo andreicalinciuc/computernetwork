@@ -18,7 +18,7 @@
             },
             "link": "da",
             "name": "susanu",
-            "numar de voturi": 0
+            "numar de voturi": 3
         },
         {
             "descriere": "de",
@@ -29,7 +29,7 @@
             },
             "link": "da",
             "name": "da",
-            "numar de voturi": 7
+            "numar de voturi": 9
         },
         {
             "comentarii": "-",
@@ -42,6 +42,19 @@
             "link": "da",
             "name": "macarena",
             "numar de voturi": 1
+        },
+        {
+            "comentarii": "-",
+            "descriere": "faina",
+            "genuri": {
+                "gen": [
+                    "populara",
+                    "traditonala"
+                ]
+            },
+            "link": "da",
+            "name": "brasoveanca",
+            "numar de voturi": 0
         }
     ],
     "users": [
