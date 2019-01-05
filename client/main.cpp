@@ -174,21 +174,51 @@ int main(int argc, char *argv[]) {
 
                                 } while (comanda > 8 || comanda < 0);
 
-                                switch (comanda) {
+                                switch (comanda) { //top
                                     case 2:
                                     {
+                                        cout<<"daaaaaa"<<endl;
+                                        char nume_melodie[1024]="\0";
+                                        int nr_vot=0;
                                         strcpy(input, "2");
                                         Write(sd, input);
+                                        int size_vec=0;
+                                        read(sd,&size_vec, sizeof(size_vec));
+                                        for (int i = 0; i <size_vec ; i++) {
+
+                                            if (read(sd, &size_recive, sizeof(size_recive)) <= 0) {
+                                                perror("Eroare la read() de la dimesiune la Inregistrare-name\n");
+                                                break;
+
+                                            }
+                                            bzero(&nume_melodie, size_recive + 1);
+
+                                            if (read(sd, nume_melodie, size_recive) <= 0) {
+                                                perror("Eroare la read() de la client.\n");
+                                                break;
+
+                                            }
+                                            if (read(sd, &nr_vot, sizeof(nr_vot)) <= 0) {
+                                                perror("Eroare la read() de la dimesiune la nr voturi\n");
+                                                break;
+
+                                            }
+
+                                            cout << nume_melodie <<"  " <<nr_vot<<endl;
+
+
+                                        }
+                                        break;
                                     }
 
-                                    case 4: {
+                                    case 4: { //quit
                                         strcpy(input, "4");
                                         Write(sd, input);
                                         Close(sd);
                                         return 0;
                                     }
 
-                                    case 5: {
+                                    case 5: { //votat melodie
                                         strcpy(input, "5");
                                         Write(sd, input);
                                         char name_song[1024] = "\0";
@@ -238,8 +268,38 @@ int main(int argc, char *argv[]) {
                     }
                     case 2:{
 
+                        cout<<"TOP:"<<endl;
+                        char nume_melodie[1024]="\0";
+                        int nr_vot=0;
                         strcpy(input, "2");
                         Write(sd, input);
+                        int size_vec=0;
+                        read(sd,&size_vec, sizeof(size_vec));
+                        for (int i = 0; i <size_vec ; i++) {
+
+                            if (read(sd, &size_recive, sizeof(size_recive)) <= 0) {
+                                perror("Eroare la read() de la dimesiune la Inregistrare-name\n");
+                                break;
+
+                            }
+                            bzero(&nume_melodie, size_recive + 1);
+
+                            if (read(sd, nume_melodie, size_recive) <= 0) {
+                                perror("Eroare la read() de la client.\n");
+                                break;
+
+                            }
+                            if (read(sd, &nr_vot, sizeof(nr_vot)) <= 0) {
+                                perror("Eroare la read() de la dimesiune la nr voturi\n");
+                                break;
+
+                            }
+
+                            cout <<"Locul "<< size_vec-i<< nume_melodie <<"  " <<nr_vot<<endl;
+
+
+                        }
+                        break;
                     }
 
                     case 4: {
@@ -356,8 +416,38 @@ int main(int argc, char *argv[]) {
                                 switch (comanda) {
 
                                     case 2: {  //top
+                                        cout<<"TOP:"<<endl;
+                                        char nume_melodie[1024]="\0";
+                                        int nr_vot=0;
                                         strcpy(input, "2");
                                         Write(sd, input);
+                                        int size_vec=0;
+                                        read(sd,&size_vec, sizeof(size_vec));
+                                        for (int i = 0; i <size_vec ; i++) {
+
+                                            if (read(sd, &size_recive, sizeof(size_recive)) <= 0) {
+                                                perror("Eroare la read() de la dimesiune la Inregistrare-name\n");
+                                                break;
+
+                                            }
+                                            bzero(&nume_melodie, size_recive + 1);
+
+                                            if (read(sd, nume_melodie, size_recive) <= 0) {
+                                                perror("Eroare la read() de la client.\n");
+                                                break;
+
+                                            }
+                                            if (read(sd, &nr_vot, sizeof(nr_vot)) <= 0) {
+                                                perror("Eroare la read() de la dimesiune la nr voturi\n");
+                                                break;
+
+                                            }
+
+                                            cout << nume_melodie <<"  " <<nr_vot<<endl;
+
+
+                                        }
+                                        break;
                                     }
 
                                     case 3: {  //top gen
@@ -457,8 +547,38 @@ int main(int argc, char *argv[]) {
                     }
                     case 2:
                     {
+                        cout<<"TOP MUZICAL:"<<endl;
+                        char nume_melodie[1024]="\0";
+                        int nr_vot=0;
                         strcpy(input, "2");
                         Write(sd, input);
+                        int size_vec=0;
+                        read(sd,&size_vec, sizeof(size_vec));
+                        for (int i = 0; i <size_vec ; i++) {
+
+                            if (read(sd, &size_recive, sizeof(size_recive)) <= 0) {
+                                perror("Eroare la read() de la dimesiune la Inregistrare-name\n");
+                                break;
+
+                            }
+                            bzero(&nume_melodie, size_recive + 1);
+
+                            if (read(sd, nume_melodie, size_recive) <= 0) {
+                                perror("Eroare la read() de la client.\n");
+                                break;
+
+                            }
+                            if (read(sd, &nr_vot, sizeof(nr_vot)) <= 0) {
+                                perror("Eroare la read() de la dimesiune la nr voturi\n");
+                                break;
+
+                            }
+
+                            cout << nume_melodie <<"  " <<nr_vot<<endl;
+
+
+                        }
+                        break;
                     }
                     case 4: {
                         strcpy(input, "4");

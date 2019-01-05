@@ -48,7 +48,7 @@ struct musics {
 void selectionSort(musics Vector[], int N) {
     for (int i = 0; i < N - 1; i++) {
         for (int j = i + 1; j < N; j++) {
-            if (music[i].nr_vot > music[j].nr_vot) {
+            if (music[i].nr_vot < music[j].nr_vot) {
                 musics aux = music[i];
                 music[i] = music[j];
                 music[j] = aux;
@@ -313,14 +313,22 @@ void raspunde(void *arg) {
 
                             music[j].name = musc["name"];
                             music[j].nr_vot = musc["numar de voturi"];
+                            cout<<musc["genuri"]["gen"];
                             j++;
                         }
 
+
                         selectionSort(music, j);
+
+                        write(tdL.cl,&j, sizeof(j));
+
                         for (int x = 0; x <= j; x++) {
-                            cout << endl;
                             cout << music[x].name << endl;
                             cout << music[x].nr_vot << endl;
+                            //   cout<<  music[j].gen<<endl;
+                            Write(tdL.cl,music[x].name);
+                            write(tdL.cl,&music[x].nr_vot, sizeof(music[x].nr_vot));
+                            //Write(tdL.cl,music[j].gen);
                         }
                         break;
                     }
@@ -573,12 +581,18 @@ void raspunde(void *arg) {
                             j++;
                         }
 
+
                         selectionSort(music, j);
+
+                        write(tdL.cl,&j, sizeof(j));
+
                         for (int x = 0; x <= j; x++) {
-                            cout << endl;
                             cout << music[x].name << endl;
                             cout << music[x].nr_vot << endl;
-                            cout<<  music[j].gen<<endl;
+                         //   cout<<  music[j].gen<<endl;
+                            Write(tdL.cl,music[x].name);
+                            write(tdL.cl,&music[x].nr_vot, sizeof(music[x].nr_vot));
+                            //Write(tdL.cl,music[j].gen);
                         }
                         break;
                     }

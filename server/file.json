@@ -92,6 +92,11 @@
             "drept de vot": 1,
             "name": "1",
             "pass": "user"
+        },
+        {
+            "drept de vot": 1,
+            "name": "1",
+            "pass": "1"
         }
     ]
 }
