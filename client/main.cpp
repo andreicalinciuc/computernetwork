@@ -177,7 +177,6 @@ int main(int argc, char *argv[]) {
                                 switch (comanda) { //top
                                     case 2:
                                     {
-                                        cout<<"daaaaaa"<<endl;
                                         char nume_melodie[1024]="\0";
                                         int nr_vot=0;
                                         strcpy(input, "2");
@@ -203,12 +202,13 @@ int main(int argc, char *argv[]) {
                                                 break;
 
                                             }
-
-                                            cout << nume_melodie <<"  " <<nr_vot<<endl;
+                                            cout <<"Locul "<< i+1<<" "<< nume_melodie <<"  " <<nr_vot<<endl;
 
 
                                         }
-                                        break;
+
+                                        goto top_usr_connected;
+
                                     }
 
                                     case 4: { //quit
@@ -268,7 +268,6 @@ int main(int argc, char *argv[]) {
                     }
                     case 2:{
 
-                        cout<<"TOP:"<<endl;
                         char nume_melodie[1024]="\0";
                         int nr_vot=0;
                         strcpy(input, "2");
@@ -294,12 +293,13 @@ int main(int argc, char *argv[]) {
                                 break;
 
                             }
-
-                            cout <<"Locul "<< size_vec-i<< nume_melodie <<"  " <<nr_vot<<endl;
+                            cout <<"Locul "<< i+1<<" "<< nume_melodie <<"  " <<nr_vot<<endl;
 
 
                         }
-                        break;
+
+
+                        goto top;
                     }
 
                     case 4: {
@@ -416,7 +416,6 @@ int main(int argc, char *argv[]) {
                                 switch (comanda) {
 
                                     case 2: {  //top
-                                        cout<<"TOP:"<<endl;
                                         char nume_melodie[1024]="\0";
                                         int nr_vot=0;
                                         strcpy(input, "2");
@@ -442,8 +441,7 @@ int main(int argc, char *argv[]) {
                                                 break;
 
                                             }
-
-                                            cout << nume_melodie <<"  " <<nr_vot<<endl;
+                                            cout <<"Locul "<< i+1<<" "<< nume_melodie <<"  " <<nr_vot<<endl;
 
 
                                         }
@@ -547,7 +545,6 @@ int main(int argc, char *argv[]) {
                     }
                     case 2:
                     {
-                        cout<<"TOP MUZICAL:"<<endl;
                         char nume_melodie[1024]="\0";
                         int nr_vot=0;
                         strcpy(input, "2");
@@ -573,8 +570,7 @@ int main(int argc, char *argv[]) {
                                 break;
 
                             }
-
-                            cout << nume_melodie <<"  " <<nr_vot<<endl;
+                            cout <<"Locul "<< i+1<<" "<< nume_melodie <<"  " <<nr_vot<<endl;
 
 
                         }

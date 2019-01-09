@@ -41,7 +41,7 @@
             },
             "link": "da",
             "name": "macarena",
-            "numar de voturi": 1
+            "numar de voturi": 10
         },
         {
             "comentarii": "-",
@@ -54,6 +54,27 @@
             },
             "link": "da",
             "name": "brasoveanca",
+            "numar de voturi": 0
+        },
+        {
+            "comentarii": "-",
+            "descriere": "dsasd",
+            "link": "dasasd",
+            "name": "deas",
+            "numar de voturi": 0
+        },
+        {
+            "comentarii": "-",
+            "descriere": "sdasda",
+            "link": "dsadsaasd",
+            "name": "madassad",
+            "numar de voturi": 0
+        },
+        {
+            "comentarii": "-",
+            "descriere": "assda",
+            "link": "asdsad",
+            "name": "asdsa",
             "numar de voturi": 0
         }
     ],

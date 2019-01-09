@@ -202,6 +202,7 @@ void raspunde(void *arg) {
                 if (read(tdL.cl, &recive, size_recive) <= 0) {
                     printf("[Thread %d]\n", tdL.idThread);
                     perror("Eroare la read() de la client.\n");
+                    break;
 
                 }
 
@@ -306,6 +307,7 @@ void raspunde(void *arg) {
 
                     }
                     case 2: {
+                        mu.lock();
                         ifstream file("../file.json");
                         json login = json::parse(file);
                         int j = 0;
@@ -319,17 +321,17 @@ void raspunde(void *arg) {
 
 
                         selectionSort(music, j);
-
+                        cout<<j<<" dass "<<endl;
                         write(tdL.cl,&j, sizeof(j));
+                        cout<<j<<" bss "<<endl;
 
-                        for (int x = 0; x <= j; x++) {
+                        for (int x = 0; x <j; x++) {
                             cout << music[x].name << endl;
                             cout << music[x].nr_vot << endl;
-                            //   cout<<  music[j].gen<<endl;
                             Write(tdL.cl,music[x].name);
                             write(tdL.cl,&music[x].nr_vot, sizeof(music[x].nr_vot));
-                            //Write(tdL.cl,music[j].gen);
                         }
+                        mu.unlock();
                         break;
                     }
 
@@ -569,7 +571,8 @@ void raspunde(void *arg) {
 
                     }
 
-                    case 2: {
+                    case 2:{
+                        mu.lock();
                         ifstream file("../file.json");
                         json login = json::parse(file);
                         int j = 0;
@@ -583,19 +586,21 @@ void raspunde(void *arg) {
 
 
                         selectionSort(music, j);
-
+                        cout<<j<<" dass "<<endl;
                         write(tdL.cl,&j, sizeof(j));
+                        cout<<j<<" bss "<<endl;
 
-                        for (int x = 0; x <= j; x++) {
+                        for (int x = 0; x <j; x++) {
                             cout << music[x].name << endl;
                             cout << music[x].nr_vot << endl;
-                         //   cout<<  music[j].gen<<endl;
                             Write(tdL.cl,music[x].name);
                             write(tdL.cl,&music[x].nr_vot, sizeof(music[x].nr_vot));
-                            //Write(tdL.cl,music[j].gen);
                         }
+                        mu.unlock();
                         break;
                     }
+
+
 
                     case 3: {
 

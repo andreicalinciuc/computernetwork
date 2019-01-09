@@ -14,47 +14,15 @@
     <list default="true" id="0fe730d7-3b01-4599-a41d-aea0ac57ff3f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.13.2/CMakeCCompiler.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.13.2/CMakeCXXCompiler.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.13.2/CMakeDetermineCompilerABI_C.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.13.2/CMakeDetermineCompilerABI_CXX.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.13.2/CMakeSystem.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.13.2/CompilerIdC/CMakeCCompilerId.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.13.2/CompilerIdCXX/CMakeCXXCompilerId.cpp" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/client.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/client.dir/build.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/client.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/client.dir/flags.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/client.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/client.dir/link.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-environment.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-environment.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/feature_tests.bin" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/feature_tests.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/client" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/client" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/client.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/client.cbp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../server/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../server/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../server/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../server/cmake-build-debug/CMakeCache.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/cmake-build-debug/CMakeFiles/3.13.2/CMakeCCompiler.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/cmake-build-debug/CMakeFiles/3.13.2/CMakeCXXCompiler.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/cmake-build-debug/CMakeFiles/3.13.2/CMakeDetermineCompilerABI_C.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/cmake-build-debug/CMakeFiles/3.13.2/CMakeDetermineCompilerABI_CXX.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/cmake-build-debug/CMakeFiles/3.13.2/CMakeSystem.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/cmake-build-debug/CMakeFiles/3.13.2/CompilerIdC/CMakeCCompilerId.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/cmake-build-debug/CMakeFiles/3.13.2/CompilerIdCXX/CMakeCXXCompilerId.cpp" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../server/cmake-build-debug/CMakeFiles/CMakeOutput.log" beforeDir="false" afterPath="$PROJECT_DIR$/../server/cmake-build-debug/CMakeFiles/CMakeOutput.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../server/cmake-build-debug/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../server/cmake-build-debug/CMakeFiles/Makefile.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/../server/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/cmake-build-debug/CMakeFiles/Retele.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/../server/cmake-build-debug/CMakeFiles/Retele.dir/build.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/cmake-build-debug/CMakeFiles/Retele.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/../server/cmake-build-debug/CMakeFiles/Retele.dir/flags.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/cmake-build-debug/CMakeFiles/Retele.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../server/cmake-build-debug/CMakeFiles/Retele.dir/link.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/cmake-build-debug/CMakeFiles/clion-environment.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../server/cmake-build-debug/CMakeFiles/clion-environment.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../server/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/cmake-build-debug/CMakeFiles/feature_tests.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../server/cmake-build-debug/CMakeFiles/feature_tests.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/../server/cmake-build-debug/Makefile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../server/cmake-build-debug/Retele" beforeDir="false" afterPath="$PROJECT_DIR$/../server/cmake-build-debug/Retele" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/cmake-build-debug/Retele.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/../server/cmake-build-debug/Retele.cbp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../server/file.json" beforeDir="false" afterPath="$PROJECT_DIR$/../server/file.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../server/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../server/main.cpp" afterDir="false" />
     </list>
@@ -71,21 +39,12 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="422">
-              <caret line="297" column="56" selection-start-line="297" selection-start-column="56" selection-end-line="297" selection-end-column="56" />
+            <state relative-caret-position="37">
+              <caret line="551" column="39" selection-start-line="551" selection-start-column="39" selection-end-line="551" selection-end-column="39" />
               <folding>
                 <element signature="e#0#2#0" />
                 <element signature="e#43#212#0" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../Communication/CommunicationHelper.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" selection-start-line="9" selection-end-line="9" />
             </state>
           </provider>
         </entry>
@@ -99,10 +58,13 @@
       <find>Read</find>
       <find>case 2</find>
       <find>case 2:</find>
+      <find>case 2:</find>
+      <find>size_vec-i</find>
     </findStrings>
     <replaceStrings>
       <replace>size_send</replace>
       <replace>comanda</replace>
+      <replace>i+1</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -115,11 +77,10 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="1">
     <option name="x" value="960" />
-    <option name="y" value="3" />
     <option name="width" value="960" />
-    <option name="height" value="1040" />
+    <option name="height" value="1043" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -182,27 +143,29 @@
       <workItem from="1546532209559" duration="7927000" />
       <workItem from="1546602198239" duration="34000" />
       <workItem from="1546639399620" duration="3072000" />
+      <workItem from="1546960549957" duration="3494000" />
+      <workItem from="1546966141383" duration="415000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="86660000" />
+    <option name="totallyTimeSpent" value="90569000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="960" y="3" width="960" height="1040" extended-state="0" />
+    <frame x="960" y="0" width="960" height="1043" extended-state="1" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.38562092" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.35274357" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39904422" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.34486607" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.53683037" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Database Changes" order="7" />
-      <window_info anchor="bottom" id="Messages" order="8" weight="0.31690928" />
+      <window_info anchor="bottom" id="Messages" order="8" weight="0.3158482" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.32735962" />
       <window_info anchor="bottom" id="Version Control" order="11" weight="0.3297491" />
@@ -220,21 +183,21 @@
     <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/../Communication/CommunicationHelper.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="11" column="18" lean-forward="true" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="422">
-          <caret line="297" column="56" selection-start-line="297" selection-start-column="56" selection-end-line="297" selection-end-column="56" />
+        <state relative-caret-position="37">
+          <caret line="551" column="39" selection-start-line="551" selection-start-column="39" selection-end-line="551" selection-end-column="39" />
           <folding>
             <element signature="e#0#2#0" />
             <element signature="e#43#212#0" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Communication/CommunicationHelper.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
         </state>
       </provider>
     </entry>
