@@ -312,7 +312,39 @@ void raspunde(void *arg) {
                         json login = json::parse(file);
                         int j = 0;
                         for (auto musc:login["songs"]) {
+                            int size_gen;
+                            size_gen=musc["genuri"];
+                            cout<<musc["genuri"]["gen"]<<"-"<<size_gen<<endl;
 
+                            music[j].name = musc["name"];
+                            music[j].nr_vot = musc["numar de voturi"];
+                            cout<<musc["genuri"]["gen"];
+                            j++;
+                        }
+
+
+                        selectionSort(music, j);
+                        cout<<j<<" dass "<<endl;
+                        write(tdL.cl,&j, sizeof(j));
+                        cout<<j<<" bss "<<endl;
+
+                        for (int x = 0; x <j; x++) {
+                            cout << music[x].name << endl;
+                            cout << music[x].nr_vot << endl;
+                            Write(tdL.cl,music[x].name);
+                            write(tdL.cl,&music[x].nr_vot, sizeof(music[x].nr_vot));
+                        }
+                        mu.unlock();
+                        break;
+                    }
+                    case 3: {
+                        mu.lock();
+                        ifstream file("../file.json");
+                        json login = json::parse(file);
+                        int j = 0;
+                        for (auto musc:login["songs"]) {
+
+                                int size_gen;
                             music[j].name = musc["name"];
                             music[j].nr_vot = musc["numar de voturi"];
                             cout<<musc["genuri"]["gen"];

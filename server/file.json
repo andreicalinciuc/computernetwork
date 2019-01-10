@@ -8,116 +8,72 @@
     ],
     "songs": [
         {
-            "descriere": "aha",
-            "genuri": {
-                "gen": [
-                    "manele",
-                    "viata",
-                    "toate"
-                ]
-            },
-            "link": "da",
-            "name": "susanu",
-            "numar de voturi": 3
-        },
-        {
-            "descriere": "de",
-            "genuri": {
-                "gen": [
-                    "da"
-                ]
-            },
-            "link": "da",
-            "name": "da",
-            "numar de voturi": 9
-        },
-        {
             "comentarii": "-",
-            "descriere": "macarenaaaaaaaaaaa",
+            "descriere": "faina",
             "genuri": {
                 "gen": [
-                    "macarena"
+                    "gen1"
                 ]
             },
-            "link": "da",
-            "name": "macarena",
-            "numar de voturi": 10
+            "link": "link",
+            "name": "nume_melodie",
+            "numar de voturi": 0
         },
         {
             "comentarii": "-",
             "descriere": "faina",
             "genuri": {
                 "gen": [
-                    "populara",
-                    "traditonala"
+                    "gen1"
                 ]
             },
-            "link": "da",
-            "name": "brasoveanca",
+            "link": "este",
+            "name": "melodie_2",
             "numar de voturi": 0
         },
         {
             "comentarii": "-",
-            "descriere": "dsasd",
-            "link": "dasasd",
-            "name": "deas",
+            "descriere": "faina",
+            "genuri": {
+                "gen": [
+                    "gen1"
+                ]
+            },
+            "link": "este",
+            "name": "melodie1",
             "numar de voturi": 0
         },
         {
             "comentarii": "-",
-            "descriere": "sdasda",
-            "link": "dsadsaasd",
-            "name": "madassad",
+            "descriere": "fainada",
+            "genuri": {
+                "gen": [
+                    "gen1",
+                    "gen2"
+                ]
+            },
+            "link": "este",
+            "name": "melodie2",
             "numar de voturi": 0
         },
         {
             "comentarii": "-",
-            "descriere": "assda",
-            "link": "asdsad",
-            "name": "asdsa",
+            "descriere": "fainatot",
+            "genuri": {
+                "gen": [
+                    "gen2"
+                ]
+            },
+            "link": "ested",
+            "name": "melodie3",
             "numar de voturi": 0
         }
     ],
     "users": [
         {
             "drept de vot": 1,
-            "name": "dadassda",
-            "pass": "dasdsadas"
-        },
-        {
-            "drept de vot": 1,
             "name": "user",
             "pass": "user"
-        },
-        {
-            "drept de vot": 1,
-            "name": "dar",
-            "pass": "dar"
-        },
-        {
-            "drept de vot": 1,
-            "name": "nic",
-            "pass": "noce"
-        },
-        {
-            "drept de vot": 1,
-            "name": "bixi",
-            "pass": "bum"
-        },
-        {
-            "drept de vot": 1,
-            "name": "bixos",
-            "pass": "bids"
-        },
-        {
-            "drept de vot": 1,
-            "name": "1",
-            "pass": "user"
-        },
-        {
-            "drept de vot": 1,
-            "name": "1",
-            "pass": "1"
         }
     ]
 }

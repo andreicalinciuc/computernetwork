@@ -1,1 +1,1 @@
-/usr/bin/c++  -pthread -g   CMakeFiles/Retele.dir/main.cpp.o  -o Retele 
+/usr/bin/g++  -pthread -g   CMakeFiles/Retele.dir/main.cpp.o  -o Retele 
